@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-default-form',
@@ -58,9 +58,12 @@ export class DefaultFormComponent implements OnInit {
 
   data: any = {
     'section_a': {},
-    'section_b': []
+    'section_b': [],
+    'section_c': []
   }
 
+  @ViewChild('stepper')
+  stepper;
 
   constructor() { }
 

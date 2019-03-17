@@ -257,8 +257,16 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns['section_c']"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns['section_c']"></tr>
     </table>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
   </mat-step>
   <mat-step>
-    <ng-template>Fin</ng-template>
+    <ng-template matStepLabel>Fin</ng-template>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="save()">Enregistrer</button>
+    </div>
   </mat-step>
 </mat-vertical-stepper>

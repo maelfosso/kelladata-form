@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule as AngularFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
+import { NgPipesModule } from 'ngx-pipes';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -20,6 +22,8 @@ import { LayoutModule } from './layout/layout.module';
     AngularFormsModule, ReactiveFormsModule,
     AppRoutingModule,
 
+    NgPipesModule,
+    
     SharedModule,
     LayoutModule,
   ],

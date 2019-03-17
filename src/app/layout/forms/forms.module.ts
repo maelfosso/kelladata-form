@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule as AngularFormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { NgPipesModule } from 'ngx-pipes';
+
 import { SharedModule } from '../../shared/shared.module';
 
 import { FormsRoutingModule } from './forms-routing.module';
@@ -17,6 +19,8 @@ import { FillingFormComponent } from './filling-form/filling-form.component';
     AngularFormsModule, ReactiveFormsModule,
     HttpClientModule,
 
+    NgPipesModule,
+    
     FormsRoutingModule,
 
     SharedModule,

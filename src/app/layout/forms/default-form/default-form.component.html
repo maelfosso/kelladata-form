@@ -1,6 +1,75 @@
 <mat-vertical-stepper #stepper>
   <mat-step>
     <ng-template matStepLabel>Section A: Informations sur le questionnaire</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A1 &nbsp;</span>
+          <input matInput [matDatepicker]="a1date" placeholder="Date de l'entretien" disabled>
+          <mat-datepicker-toggle matSuffix [for]="a1date"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #a1date disabled="false"></mat-datepicker>
+          <!-- <mat-hint align="start"></mat-hint> -->
+        </mat-form-field>
+        <input type="time" atp-time-picker #a1time value=""/>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A2 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code de la region"/>
+          <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A3 &nbsp;</span>
+          <input matInput #a3 placeholder="Nom ou code du departement"/>
+          <mat-hint align="start">Ex: <strong>D051</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A4 &nbsp;</span>
+          <input matInput #a4 placeholder="Nom ou code de l'arrondissement"/>
+          <mat-hint align="start">Ex: <strong>072</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A5 &nbsp;</span>
+          <input matInput #a5 placeholder="Nom ou code du village"/>
+          <mat-hint align="start">Ex: <strong>BI002</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A6 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code du menage"/>
+          <mat-hint align="start"><strong>A attribuer par le superviseur.</strong>. Ex: <strong>M001</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A7 &nbsp;</span>
+          <input matInput #a2 placeholder="Numero du questionnaire"/>
+          <mat-hint align="start">Ex: <strong>0001</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A8 &nbsp;</span>
+          <input matInput #a2 placeholder="Numero du chef du menage"/>
+          <mat-hint align="start"><strong>Contact telephonique du chef de menage</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A9 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code du groupe de collecte"/>
+          <mat-hint align="start">Ex: <strong>G1</strong></mat-hint>
+        </mat-form-field>
+      </div>
+    </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Section B: Listes des membres du menages</ng-template>

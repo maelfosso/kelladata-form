@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule as AngularFormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { NgPipesModule } from 'ngx-pipes';
+
+import { SharedModule } from '../../shared/shared.module';
 
 import { FormsRoutingModule } from './forms-routing.module';
 import { FormsComponent } from './forms.component';
@@ -10,7 +16,14 @@ import { FillingFormComponent } from './filling-form/filling-form.component';
   declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent],
   imports: [
     CommonModule,
-    FormsRoutingModule
+    AngularFormsModule, ReactiveFormsModule,
+    HttpClientModule,
+
+    NgPipesModule,
+    
+    FormsRoutingModule,
+
+    SharedModule,
   ]
 })
 export class FormsModule { }

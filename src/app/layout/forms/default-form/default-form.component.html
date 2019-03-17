@@ -1,3 +1,272 @@
-<p>
-  default-form works!
-</p>
+<mat-vertical-stepper #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Section A: Informations sur le questionnaire</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A1 &nbsp;</span>
+          <input matInput [matDatepicker]="a1date" placeholder="Date de l'entretien" disabled>
+          <mat-datepicker-toggle matSuffix [for]="a1date"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #a1date disabled="false"></mat-datepicker>
+          <!-- <mat-hint align="start"></mat-hint> -->
+        </mat-form-field>
+        <input type="time" atp-time-picker #a1time value=""/>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A2 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code de la region"/>
+          <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A3 &nbsp;</span>
+          <input matInput #a3 placeholder="Nom ou code du departement"/>
+          <mat-hint align="start">Ex: <strong>D051</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A4 &nbsp;</span>
+          <input matInput #a4 placeholder="Nom ou code de l'arrondissement"/>
+          <mat-hint align="start">Ex: <strong>072</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A5 &nbsp;</span>
+          <input matInput #a5 placeholder="Nom ou code du village"/>
+          <mat-hint align="start">Ex: <strong>BI002</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A6 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code du menage"/>
+          <mat-hint align="start"><strong>A attribuer par le superviseur.</strong>. Ex: <strong>M001</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A7 &nbsp;</span>
+          <input matInput #a2 placeholder="Numero du questionnaire"/>
+          <mat-hint align="start">Ex: <strong>0001</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A8 &nbsp;</span>
+          <input matInput #a2 placeholder="Numero du chef du menage"/>
+          <mat-hint align="start"><strong>Contact telephonique du chef de menage</strong></mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>A9 &nbsp;</span>
+          <input matInput #a2 placeholder="Nom ou code du groupe de collecte"/>
+          <mat-hint align="start">Ex: <strong>G1</strong></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Section B: Listes des membres du menages</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B1 &nbsp;</span>
+          <input matInput #b1 placeholder="Code/Membre du meage"/>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B2 &nbsp;</span>
+          <mat-select #b2 placeholder="Sexe membre du menage">
+            <mat-option *ngFor="let c of choices['mf']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B3 &nbsp;</span>
+          <input matInput #b3 placeholder="Age dernier anniversaire"/>
+          <mat-hint align="start">En annee revolu.</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B4 &nbsp;</span>
+          <input matInput #b4 placeholder="Contribution au revenu du menage"/>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B5 &nbsp;</span>
+          <mat-select #b5 placeholder="Liens de parente avec le chef du menage">
+            <mat-option *ngFor="let c of choices['yes-no']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B6 &nbsp;</span>
+          <mat-select #b6 placeholder="Etat matrimonial">
+            <mat-option *ngFor="let c of choices['liens-parente']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B7 &nbsp;</span>
+          <mat-select #b7 placeholder="Handicap du membre du menage">
+            <mat-option *ngFor="let c of choices['handicap']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B8 &nbsp;</span>
+          <mat-select #b8 placeholder="Avez-vous une activite ?">
+            <mat-option *ngFor="let c of choices['yes-no']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>B9 &nbsp;</span>
+          <input matInput #b9 placeholder="Code mere de l'enfant de 0 a 4ans"/>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-button>Add member</button>
+      </div>
+    </form>
+
+    <table mat-table [dataSource]="data['section_b']" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns['section_b']">
+        <th mat-header-cell *matHeaderCellDef> {{column | ucfirst }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+
+      <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns['section_b']"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns['section_b'];"></tr>
+    </table>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Section C: Education</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C1 &nbsp;</span>
+          <mat-select #c1 placeholder="Langues lues et ecrites des personnes de 10 et 20 ans dans le menage">
+            <mat-option *ngFor="let c of choices['c1']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C2 &nbsp;</span>
+          <mat-select #c2 placeholder="A deja frequente l'ecole ?">
+            <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C3 &nbsp;</span>
+          <mat-select #c3 placeholder="Niveau d'etude le plus eleve">
+            <mat-option *ngFor="let c of choices['c3']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C4 &nbsp;</span>
+          <mat-select #c4 placeholder="A frequente l'annee derniere ?">
+            <mat-option *ngFor="let c of choices['c4']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C5 &nbsp;</span>
+          <mat-select #c5 placeholder="Frequente actuellement une ecole ?">
+            <mat-option *ngFor="let c of choices['c5']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C6 &nbsp;</span>
+          <mat-select #c6 placeholder="A deja frequente l'ecole ?">
+            <mat-option *ngFor="let c of choices['c6']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C7 &nbsp;</span>
+          <textarea matInput #c7 placeholder="Quel est le nom de l'etablissement ?"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C8 &nbsp;</span>
+          <mat-select #c8 placeholder="A deja frequente l'ecole ?">
+            <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>C9 &nbsp;</span>
+          <textarea matInput #c9 placeholder="Pourquoi ne va-t-il/elle pas a l'ecole actuellement ou n'a jamais ete a l'ecole ?"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <table mat-table [dataSource]="data['section_b']" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns['section_c']">
+        <th mat-header-cell *matHeaderCellDef> {{column | ucfirst }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+
+      <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns['section_c']"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns['section_c']"></tr>
+    </table>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Fin</ng-template>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="save()">Enregistrer</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

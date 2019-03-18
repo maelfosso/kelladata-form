@@ -69,7 +69,7 @@ export class DefaultFormComponent implements OnInit {
     'section_b_new': {
       'to_save': false
     },
-    'section_b': [], //[ { "b1": "001", "b2": "1", "b3": "4", "b4": "1444", "b5": "1", "b6": "2", "b7": "4", "b8": "2", "b9": "000" } ],
+    'section_b': [],
     'section_c_new': {
       'to_save': false
     },
@@ -91,6 +91,20 @@ export class DefaultFormComponent implements OnInit {
 
   }
 
+  _resetData() {
+    this.data = {
+      'section_a': {},
+      'section_b_new': {
+        'to_save': false
+      },
+      'section_b': [],
+      'section_c_new': {
+        'to_save': false
+      },
+      'section_c': []
+    }
+  }
+  
   goTo(idx) {
     let keys = Object.keys(this.data);
 
@@ -119,7 +133,7 @@ export class DefaultFormComponent implements OnInit {
 
   onSave() {
     Object.keys(this.data).map(x => {
-      if (this.data['to_save'] === undefined) {
+      if (x['to_save'] === undefined) {
         return x;
       }
     });
@@ -129,6 +143,8 @@ export class DefaultFormComponent implements OnInit {
     this.dataService.save(this.data).pipe(first()).subscribe(
       (result:any) => {
         console.log(result);
+
+        this._resetData();
       }
     )
   }

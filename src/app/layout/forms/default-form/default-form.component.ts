@@ -1,4 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {DataSource} from '@angular/cdk/collections';
+import {Observable} from 'rxjs/Observable'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import { first } from 'rxjs/operators';
+
+import { DataService } from '../../../_services/data.service';
 
 @Component({
   selector: 'app-default-form',
@@ -56,23 +63,103 @@ export class DefaultFormComponent implements OnInit {
     'section_c': ['code', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9']
   }
 
+  subject = new BehaviorSubject([])
   data: any = {
     'section_a': {},
+    'section_b_new': {
+      'to_save': false
+    },
     'section_b': [],
+    'section_c_new': {
+      'to_save': false
+    },
     'section_c': []
+  }
+  dataSource: any = {
+    'section_b': new BehaviorSubject<any>(this.data['section_b']),
+    'section_c': new BehaviorSubject<any>(this.data['section_c']),
   }
 
   @ViewChild('stepper')
   stepper;
-
-  constructor() { }
+  selectedIndex = 0;
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
 
   }
 
-  toCapitalLetter(arr) {
-    return arr.map(x => x.toUpperCase());
+  _resetData() {
+    this.data = {
+      'section_a': {},
+      'section_b_new': {
+        'to_save': false
+      },
+      'section_b': [],
+      'section_c_new': {
+        'to_save': false
+      },
+      'section_c': []
+    }
+  }
+  
+  goTo(idx) {
+    let keys = Object.keys(this.data);
+
+    // if (idx == 2) {
+    //   this.data['section_c'] = this.data['section_b'].map(x => {
+    //     return {
+    //       code: x.b1
+    //     }
+    //   });
+    //   this.dataSource['section_c'] = new BehaviorSubject<any>(this.data['section_c']);
+    // }
+
+
+    this.selectedIndex = idx;
   }
 
+  addTo(idx) {
+    let keys = Object.keys(this.data);
+
+    this.data[keys[idx - 1]].to_save = undefined
+    this.data[keys[idx]].push(this.data[keys[idx - 1]]);
+    this.dataSource[keys[idx]] = new BehaviorSubject<any>(this.data[keys[idx]]);
+
+    this.data[keys[idx - 1]] = { to_save: false }
+  }
+
+  onSave() {
+    Object.keys(this.data).map(x => {
+      if (x['to_save'] === undefined) {
+        return x;
+      }
+    });
+    this.data.__survey = 'default';
+
+    console.log(this.data);
+    this.dataService.save(this.data).pipe(first()).subscribe(
+      (result:any) => {
+        console.log(result);
+
+        this._resetData();
+      }
+    )
+  }
+}
+
+export class CustomListDatasource extends DataSource<any> {
+
+    constructor(private _list$: Observable<any[]>) {
+        super();
+    }
+
+    connect(): Observable<any[]> {
+        return this._list$;
+    }
+
+    disconnect() {
+    }
 }

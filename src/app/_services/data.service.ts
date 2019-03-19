@@ -15,6 +15,6 @@ export class DataService {
   }
 
   stats(survey:string = 'default') {
-    return this.http.post(`${environment.apiUrl}/data/${survey}/stats`, data);
+    return this.http.get(`${environment.apiUrl}/data/${survey}/stats`);
   }
 }

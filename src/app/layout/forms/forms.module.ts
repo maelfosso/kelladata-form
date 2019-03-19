@@ -4,6 +4,7 @@ import { FormsModule as AngularFormsModule, ReactiveFormsModule } from '@angular
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgPipesModule } from 'ngx-pipes';
+import { ChartsModule } from 'ng2-charts';
 
 import { SharedModule } from '../../shared/shared.module';
 
@@ -20,8 +21,8 @@ import { StatsComponent } from './stats/stats.component';
     AngularFormsModule, ReactiveFormsModule,
     HttpClientModule,
 
-    NgPipesModule,
-    
+    NgPipesModule,ChartsModule,
+
     FormsRoutingModule,
 
     SharedModule,

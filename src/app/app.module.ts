@@ -4,6 +4,7 @@ import { FormsModule as AngularFormsModule, ReactiveFormsModule } from '@angular
 import { NgModule } from '@angular/core';
 
 import { NgPipesModule } from 'ngx-pipes';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { DataService } from './_services/data.service';
     AppRoutingModule,
 
     NgPipesModule,
+    ChartsModule,
 
     SharedModule,
     LayoutModule,

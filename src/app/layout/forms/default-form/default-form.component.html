@@ -340,6 +340,321 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION D: EMPLOI</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E1 &nbsp;</span>
+          <mat-select id="section_e__e1" placeholder="Avez-vous travaillez la semaine dernière ?">
+            <mat-option *ngFor="let c of choices['e1']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E2 &nbsp;</span>
+          <mat-select id="section_e__e2" placeholder="Pourquoi n’avez-vous pas travaillé la semaine dernière? (Raison principale)">
+            <mat-option *ngFor="let c of choices['e2']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E3 &nbsp;</span>
+          <mat-select id="section_e__e3" placeholder="Etes-vous prêt ou disponible pour travailler ?">
+            <mat-option *ngFor="let c of choices['e3']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E4 &nbsp;</span>
+          <input matInput id="section_e__e4" placeholder="Combien d’emploi avez-vous eu au cours des 07 derniers jours ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E5 &nbsp;</span>
+          <mat-select id="section_e__e5" placeholder="Quel est l’emploi qui vous a le plus occupé ces 07 derniers jours (Une seule modalité est possible)">
+            <mat-option *ngFor="let c of choices['e3']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E6 &nbsp;</span>
+          <mat-select id="section_e__e6" placeholder="Quelle était la nature du paiement de cet emploi ?">
+            <mat-option *ngFor="let c of choices['e6']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E7 &nbsp;</span>
+          <mat-select id="section_e__e7" placeholder="Ou travaillez-vous ?">
+            <mat-option *ngFor="let c of choices['e7']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E8 &nbsp;</span>
+          <mat-select id="section_e__e8" placeholder="Quelle est la branche de l’activité principale que vous occupé ?">
+            <mat-option *ngFor="let c of choices['e8']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E9 &nbsp;</span>
+          <mat-select id="section_e__e9" placeholder="Avez-vous cherché à augmenter vos revenus ?">
+            <mat-option *ngFor="let c of choices['e9']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E10 &nbsp;</span>
+          <mat-select id="section_e__e10" placeholder="Comment avez cherché à augmenter vos revenus au cours de la semaine précédente ?">
+            <mat-option *ngFor="let c of choices['e10']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E11 &nbsp;</span>
+          <mat-select id="section_e__e11" placeholder="Etes-vous encore prêts à prendre un travail supplémentaire dans les 04 semaines à venir ?">
+            <mat-option *ngFor="let c of choices['e11']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E12 &nbsp;</span>
+          <mat-select id="section_e__e12" placeholder="Pourquoi n’avez-vous donc pas cherché du travail au cours de ces 04 dernières semaines ?">
+            <mat-option *ngFor="let c of choices['e12']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E13 &nbsp;</span>
+          <mat-select id="section_e__e13" placeholder="Est occupée, (toute personne ayant travaillé au moins 03 mois de façon continue au cours des 12 derniers mois). Est-ce votre cas ?">
+            <mat-option *ngFor="let c of choices['e13']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E14 &nbsp;</span>
+          <mat-select id="section_e__e14" placeholder="Quelle est la nature de cet emploi que vous avez occupé ?">
+            <mat-option *ngFor="let c of choices['e14']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E15 &nbsp;</span>
+          <mat-select id="section_e__e15" placeholder="Quel est l’emploi qui vous a le plus occupé au cours des 07 derniers jours ?">
+            <mat-option *ngFor="let c of choices['e15']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E16 &nbsp;</span>
+          <mat-select id="section_e__e16" placeholder="Avez-vous droit à une pension de retraite dans ce travail?">
+            <mat-option *ngFor="let c of choices['e16']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E17 &nbsp;</span>
+          <mat-select id="section_e__e17" placeholder="Quel type de sécurité sociale avez-vous ?">
+            <mat-option *ngFor="let c of choices['e17']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E18 &nbsp;</span>
+          <mat-select id="section_e__e18" placeholder="Avez-vous droit à des congés payés dans ce travail ?">
+            <mat-option *ngFor="let c of choices['e18']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E19 &nbsp;</span>
+          <textarea matInput id="section_e__e4" placeholder="Quel est l’avantage que vous avez tiré de ce travail ?"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E20 &nbsp;</span>
+          <mat-select id="section_e__e20" placeholder="Combien de mois avez-vous exercé dans ce travail ?">
+            <mat-option *ngFor="let c of choices['e20']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E21 &nbsp;</span>
+          <mat-select id="section_e__e21" placeholder="Votre condition de vie a-t-elle changée dans cette profession ?">
+            <mat-option *ngFor="let c of choices['e21']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E22 &nbsp;</span>
+          <mat-select id="section_e__e22" placeholder="Quelle est l’emploi qui vous a le plus occupé au cours des douze derniers mois ? (Une seule modalité est possible)">
+            <mat-option *ngFor="let c of choices['e22']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E23 &nbsp;</span>
+          <mat-select id="section_e__e23" placeholder="Dans quelle branche d’activité avez-vous exercé au cours des 12 derniers mois ?">
+            <mat-option *ngFor="let c of choices['e23']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E24 &nbsp;</span>
+          <input matInput id="section_e__e24" placeholder="Quel a été votre revenu tiré de cet emploi durant les 30 derniers jours ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E25 &nbsp;</span>
+          <mat-select id="section_e__e25" placeholder="Est-ceque ce revenu de travail a varié au cours des 12 derniers mois ?">
+            <mat-option *ngFor="let c of choices['e25']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E26 &nbsp;</span>
+          <mat-select id="section_e__e26" placeholder="Avez-vous exercé d’autres activités en même temps que l’emploi principal au cours des 12 derniers mois ?">
+            <mat-option *ngFor="let c of choices['e26']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E27 &nbsp;</span>
+          <mat-select id="section_e__e27" placeholder="Quel est l’emploi qui vous a le plus occupé après l’emploi principal au cours des 12 derniers mois ?">
+            <mat-option *ngFor="let c of choices['e27']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E28 &nbsp;</span>
+          <mat-select id="section_e__e28" placeholder="Dans quelle branche d’activité avez-vous exercé cet emploi ?">
+            <mat-option *ngFor="let c of choices['e28']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E29 &nbsp;</span>
+          <mat-select id="section_e__e29" placeholder="Cet emploi secondaire a-t-il amélioré votre condition de vie ?">
+            <mat-option *ngFor="let c of choices['e29']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E30 &nbsp;</span>
+          <input matInput id="section_e__e30" placeholder="Au cours des 30 derniers jours, quel est le revenu que vous avez eu de cet emploi secondaire ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E31 &nbsp;</span>
+          <input matInput id="section_e__e31" placeholder="Combien de mois avez-vous travaillez dans cet emploi secondaire durant les 12 derniers mois ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E32 &nbsp;</span>
+          <mat-select id="section_e__e32" placeholder="Avant votre emploi principal au cours des 12 derniers mois, avez-vous occupez une autre activité ?">
+            <mat-option *ngFor="let c of choices['e32']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E33 &nbsp;</span>
+          <mat-select id="section_e__e33" placeholder="Quel est cet emploi ? (Quel est cet emploi)">
+            <mat-option *ngFor="let c of choices['e33']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E34 &nbsp;</span>
+          <input matInput id="section_e__e34" placeholder="Vous avez exercé cet emploi pendant combien de temps ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E35 &nbsp;</span>
+          <mat-select id="section_e__e35" placeholder="Dans quelle branche d’activité avez-vous exercé cet emploi ?">
+            <mat-option *ngFor="let c of choices['e35']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E36 &nbsp;</span>
+          <mat-select id="section_e__e36" placeholder="Dans cette activité, avez-vous droit à une pension retraite ?">
+            <mat-option *ngFor="let c of choices['e36']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E37 &nbsp;</span>
+          <mat-select id="section_e__e37" placeholder="Quelle était votre niveau de vie dans cette activité ?">
+            <mat-option *ngFor="let c of choices['e37']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E38 &nbsp;</span>
+          <mat-select id="section_e__e38" placeholder="Avez-vous droit à des congés payés dans ce travail ?">
+            <mat-option *ngFor="let c of choices['e38']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>E39 &nbsp;</span>
+          <input matInput id="section_e__e39" placeholder="Pourquoi n’avez-vous pas occupez une autre activité précédente ?"/>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>SECTION F: AVOIRS DU MENAGE</ng-template>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>Fin</ng-template>
 
     <div>

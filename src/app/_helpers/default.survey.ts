@@ -46,6 +46,9 @@ export const defaultSurvey:any = {
     'd5b': {type: 'text'},
     'd6': {type: 'text'},
     'd7': {type: 'single_choice', kv: {"1":"Pas nécessaire","2":"Manque de moyen financier","3":"Distance longue","4":"Absence de soins appropriés","5":"Mauvais accueil","6":"Autres"}},
+  },
+  'section_e': {
+    
   }
 };
 

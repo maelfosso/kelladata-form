@@ -228,7 +228,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C7 &nbsp;</span>
-          <textarea matInput id="section_c__c7" placeholder="Quel est le nom de l'etablissement ?"></textarea>
+          <input matInput id="section_c__c7" placeholder="Quel est le nom de l'etablissement ?"/>
         </mat-form-field>
       </div>
       <div>
@@ -256,6 +256,83 @@
       <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
       <tr mat-header-row *matHeaderRowDef="displayedColumns['section_c']"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns['section_c']"></tr>
+    </table>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Section D: SANTE</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D1 &nbsp;</span>
+          <mat-select id="section_d__d1" placeholder="Maladies/blessures comme obstacle au travail et à l’école durant les 15 derniers jours">
+            <mat-option *ngFor="let c of choices['d1']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D2 &nbsp;</span>
+          <<textarea matInput id="section_d__d2" placeholder="Types de maladies/blessures durant les 15 derniers jours"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D3 &nbsp;</span>
+          <textarea matInput id="section_d__d3" placeholder="Absence au travail/école durant les 15 derniers jours"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D4 &nbsp;</span>
+          <mat-select id="section_d__d4" placeholder="Sollicitation des soins médicaux durant les 15 derniers jours">
+            <mat-option *ngFor="let c of choices['d4']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D5a &nbsp;</span>
+          <mat-select id="section_d__d5a" placeholder="Fréquence de service durant les 15 derniers jours à D4">
+            <mat-option *ngFor="let c of choices['d5a']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D5b &nbsp;</span>
+          <textarea matInput id="section_d__d5b" placeholder="Maladies identifiées après diagnostic"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D6 &nbsp;</span>
+          <textarea matInput id="section_d__d6" placeholder="Problèmes rencontrés avec ledit service"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>D7 &nbsp;</span>
+          <mat-select id="section_d__d7" placeholder="Pourquoi n’a pas consulté un service de soins">
+            <mat-option *ngFor="let c of choices['d7']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <table mat-table [dataSource]="data['section_d']" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns['section_d']">
+        <th mat-header-cell *matHeaderCellDef> {{column | ucfirst }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+
+      <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns['section_d']"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns['section_d']"></tr>
     </table>
 
     <div>

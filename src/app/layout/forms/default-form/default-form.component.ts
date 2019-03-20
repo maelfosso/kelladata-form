@@ -52,11 +52,16 @@ export class DefaultFormComponent implements OnInit {
     "c5": [ {key:"1", label:"Oui"}, {key:"2", label:"Non", jumpTo: "c9"}],
     "c6": [ {key:"41", label:"Formation professionelle/technique au secondaire"}, {key:"42", label:"Formation generale"},
             {key:"43", label:"Formation pour enseignant: ENIET, ENIEG"}, {key:"31", label: "Universite/Formation professionnelle universitaire"}],
-    "c8": [ {key:"1", label:"Manque de performance scolaire"}, {key:"2", label:"Etat de sante"}]
+    "c8": [ {key:"1", label:"Manque de performance scolaire"}, {key:"2", label:"Etat de sante"}],
+    "d1": [ {key: "1", label:"Oui"}, {key:"2", label:"Non", jumpTo: "end_subsection"}],
+    "d4": [ {key:'1', label:"Hôpital public"}, {key:'2', label:"Hôpital privé"}, {key:'3', label:"Automédicat ion"}, {key:'4', label:"Médecine traditionnelle"}, {key:'5', label:"Rien", jumpTo:"d7"}],
+    "d5a": [ {key:"1", label:"Plus"}, {key:"2", label:"Moins"}, {key:"3", label:"Moyen"}],
+    "d7": [ {key:"1", label:"Pas nécessaire"}, {key:"2", label:"Manque de moyen financier"}, {key:"3", label:"Distance longue"}, {key:"4", label:"Absence de soins appropriés"}, {key:"5", label:"Mauvais accueil"}, {key:"6", label:"Autres"}]
   }
   displayedColumns: any = {
     'section_b': ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9'],
-    'section_c': ['code', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9']
+    'section_c': ['code', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9'],
+    'section_d': ['code','sexe','age', 'd1', 'd2', 'd3', 'd4', 'd5a', 'd5b', 'd6', 'd7']
   }
 
   data: any = {

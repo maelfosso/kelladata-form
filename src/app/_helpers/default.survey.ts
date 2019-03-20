@@ -23,7 +23,7 @@ export const defaultSurvey:any = {
     'b9': {type: 'string'}
   },
   'section_c': {
-    'code': {type:'string'},
+    'code': {type:'string', added: true},
     'c1': {type: 'single_choice', kv: {'10':'Bassa','20':'Francais','30':'Anglais','40':'Autres'}},
     'c2': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'2':'c9'}},
     'c3': {type: 'single_choice', kv: {'1':'Primaire','2':'Secondaire','3':'Universite','4':'Formation','99':'NSP','00':'Pas fait de choix'}},
@@ -33,6 +33,19 @@ export const defaultSurvey:any = {
     'c7': {type: 'string'},
     'c8': {type: 'single_choice', kv: {'1':'Manque de performance scolaire', '2':'Etat de santé'}},
     'c9': {type: 'text'}
+  },
+  'section_d': {
+    'code': {type:'string', added: true},
+    'sexe': {type:'string', added: true},
+    'age': {type:'string', added: true},
+    'd1': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'2':'end_subsection'}},
+    'd2': {type: 'string'},
+    'd3': {type: 'string'},
+    'd4': {type: 'single_choice', kv: {'1':"Hôpital public",'2':"Hôpital privé",'3':"Automédication",'4':"Médecine traditionnelle",'5':"Rien"}, jumpTo: {"5":"d7"}},
+    'd5a': {type: 'single_choice', kv: {"1":"Plus","2":"Moins","3":"Moyen"}},
+    'd5b': {type: 'text'},
+    'd6': {type: 'text'},
+    'd7': {type: 'single_choice', kv: {"1":"Pas nécessaire","2":"Manque de moyen financier","3":"Distance longue","4":"Absence de soins appropriés","5":"Mauvais accueil","6":"Autres"}},
   }
 };
 

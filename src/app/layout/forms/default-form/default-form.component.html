@@ -180,7 +180,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C1 &nbsp;</span>
-          <mat-select #c1 placeholder="Langues lues et ecrites des personnes de 10 et 20 ans dans le menage">
+          <mat-select id="section_c__1" placeholder="Langues lues et ecrites des personnes de 10 et 20 ans dans le menage">
             <mat-option *ngFor="let c of choices['c1']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -188,15 +188,15 @@
       <div>
         <mat-form-field>
           <span matPrefix>C2 &nbsp;</span>
-          <mat-select #c2 placeholder="A deja frequente l'ecole ?">
-            <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }}</mat-option>
+          <mat-select id="section_c__c2" placeholder="A deja frequente l'ecole ?" (selectionChange)="selectionChange($event)">
+            <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }} - {{ c.key }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <span matPrefix>C3 &nbsp;</span>
-          <mat-select #c3 placeholder="Niveau d'etude le plus eleve">
+          <mat-select id="section_c__c3" placeholder="Niveau d'etude le plus eleve">
             <mat-option *ngFor="let c of choices['c3']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -204,7 +204,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C4 &nbsp;</span>
-          <mat-select #c4 placeholder="A frequente l'annee derniere ?">
+          <mat-select id="section_c__c4" placeholder="A frequente l'annee derniere ?">
             <mat-option *ngFor="let c of choices['c4']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -212,7 +212,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C5 &nbsp;</span>
-          <mat-select #c5 placeholder="Frequente actuellement une ecole ?">
+          <mat-select id="section_c__c5" placeholder="Frequente actuellement une ecole ?">
             <mat-option *ngFor="let c of choices['c5']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -220,7 +220,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C6 &nbsp;</span>
-          <mat-select #c6 placeholder="A deja frequente l'ecole ?">
+          <mat-select id="section_c__c6" placeholder="A deja frequente l'ecole ?">
             <mat-option *ngFor="let c of choices['c6']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -228,13 +228,13 @@
       <div>
         <mat-form-field>
           <span matPrefix>C7 &nbsp;</span>
-          <textarea matInput #c7 placeholder="Quel est le nom de l'etablissement ?"></textarea>
+          <textarea matInput id="section_c__c7" placeholder="Quel est le nom de l'etablissement ?"></textarea>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field>
           <span matPrefix>C8 &nbsp;</span>
-          <mat-select #c8 placeholder="A deja frequente l'ecole ?">
+          <mat-select  id="section_c__c8" placeholder="A deja frequente l'ecole ?">
             <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -242,7 +242,7 @@
       <div>
         <mat-form-field>
           <span matPrefix>C9 &nbsp;</span>
-          <textarea matInput #c9 placeholder="Pourquoi ne va-t-il/elle pas a l'ecole actuellement ou n'a jamais ete a l'ecole ?"></textarea>
+          <textarea matInput id="section_c__c9" placeholder="Pourquoi ne va-t-il/elle pas a l'ecole actuellement ou n'a jamais ete a l'ecole ?"></textarea>
         </mat-form-field>
       </div>
     </form>

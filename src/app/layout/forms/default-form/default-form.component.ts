@@ -79,6 +79,16 @@ export class DefaultFormComponent implements OnInit {
     "e22": [ {key: "1", label:"Electricien"}, {key:"2", label:"Commerçant"}, {key:"3", label:"Agriculteur/Eleveur"}, {key:"4", label:"Domestique/Ménagère"}, {key:"5", label:"Chasseur"}, {key:"6", label:"Bucheron"}, {key:"7", label:"Couturier"}, {key:"8", label:"Macon"}, {key:"9", label:"Secretaire"}, {key:"10", label:"Forces armée et sécurité"}, {key:"11", label:"Artisanat/Boulanger"}, {key:"12", label:"Cadres supérieurs,moyens,subalternes,employés,manœuvres,professions libérales"}, {key:"13", label:"Enseignant"}, {key:"14", label:"Autres"}],
     "e23": [ {key: "1", label:"Agropastorale"}, {key:"2", label:"Education"}, {key:"3", label:"Administration"}, {key:"4", label:"Construction"}, {key:"5", label:"Action sociale"}, {key:"6", label:"Ingénierie"}, {key:"7", label:"Fabrication"}, {key:"8", label:"Réparation"}, {key:"9", label:"Autres"}],
     "e25": [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+    "e26": [ {key: "1", label:"Oui"}, {key:"2", label:"Non", jumpTo: "e32"}],
+    "e27": [ {key: "1", label:"Electricien"}, {key:"2", label:"Commerçant"}, {key:"3", label:"Agriculteur/Eleveur"}, {key:"4", label:"Domestique/Ménagère"}, {key:"5", label:"Chasseur"}, {key:"6", label:"Bucheron"}, {key:"7", label:"Couturier"}, {key:"8", label:"Macon"}, {key:"9", label:"Secretaire"}, {key:"10", label:"Artisan"}, {key:"11", label:"Enseignant"}, {key:"12", label:"Autres"}],
+    "e28": [ {key: "1", label:"Agropastorale"}, {key:"2", label:"Education"}, {key:"3", label:"Administration"}, {key:"4", label:"Construction"}, {key:"5", label:"Action sociale"}, {key:"7", label:"Ingénierie"}, {key:"8", label:"Autres"}],
+    "e29": [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+    "e32": [ {key: "1", label:"Oui"}, {key:"2", label:"Non", jumpTo: "e39"}],
+    "e33": [ {key: "1", label:"Electricien"}, {key:"2", label:"Commerçant"}, {key:"3", label:"Agriculteur/Eleveur"}, {key:"4", label:"Domestique/Ménagère"}, {key:"5", label:"Chasseur"}, {key:"6", label:"Bucheron"}, {key:"7", label:"Couturier"}, {key:"8", label:"Macon"}, {key:"9", label:"Secretaire"}, {key:"10", label:"Forces armée et sécurité"}, {key:"11", label:"Artisanat/Boulanger"}, {key:"12", label:"Cadres supérieurs,moyens,subalternes,employés,manœuvres,professions libérales"}, {key:"13", label:"Enseignant"}, {key:"14", label:"Coiffure"}, {key:"15", label:"Transporteur"}, {key:"16", label:"Autres"}],
+    "e35": [ {key: "1", label:"Agropastorale"}, {key:"2", label:"Education"}, {key:"3", label:"Administration"}, {key:"4", label:"Construction"}, {key:"5", label:"Action sociale"}, {key:"6", label:"Ingénierie"}, {key:"7", label:"Autres"}],
+    "e36": [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+    "e37": [ {key: "1", label:"Faible"}, {key:"2", label:"Moyen"}, {key:"3", label:"Passable"}, {key:"4", label:"Assez-bien"}, {key:"5", label:"Bien"}, {key:"6", label:"Tres-Bien"}],
+    "e38": [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
 
   }
   displayedColumns: any = {

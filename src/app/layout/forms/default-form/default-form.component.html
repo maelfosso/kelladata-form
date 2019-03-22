@@ -11,7 +11,7 @@
           <mat-datepicker touchUi #a1date disabled="false"></mat-datepicker>
           <!-- <mat-hint align="start"></mat-hint> -->
         </mat-form-field>
-        <input type="time" atp-time-picker #a1time value=""/>
+        <input type="time" atp-time-picker id="a1time" #a1time value=""/>
       </div>
       <div>
         <mat-form-field>
@@ -340,7 +340,7 @@
     </div>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>SECTION D: EMPLOI</ng-template>
+    <ng-template matStepLabel>SECTION E: EMPLOI</ng-template>
 
     <form>
       <h2>EMPLOI PRINCIPAL DES MEMBRES QUI TRAVAILLENT ET IDENTIFIES A B1</h2>
@@ -646,7 +646,7 @@
           <input matInput id="section_e__e39" placeholder="Pourquoi n’avez-vous pas occupez une autre activité précédente ?"/>
         </mat-form-field>
       </div>
-      
+
     </form>
 
     <div>
@@ -655,6 +655,399 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>SECTION F: AVOIRS DU MENAGE</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F1 &nbsp;</span>
+          <mat-select id="section_f__f1" placeholder="Quelle est votre situation sur ce terrain?">
+            <mat-option *ngFor="let c of choices['f1']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F2a &nbsp;</span>
+          <mat-select id="section_f__f2a" placeholder="Est-ce que votre logement dispose de pièces suivantes ?" multiple>
+            <mat-option *ngFor="let c of choices['f2']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F2b &nbsp;</span>
+          <mat-select id="section_f__f2b" placeholder="Existe-t-il une pièce aménagée pour la cuisine ?">
+            <mat-option *ngFor="let c of choices['f2b']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F3 &nbsp;</span>
+          <mat-select id="section_f__f3" placeholder="Quelles sont les superficies de vos terres ayant un titre de propriété coutumier ou légal ? (Superficie en hectare ou en décimale)">
+            <mat-option *ngFor="let c of choices['f3']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F4 &nbsp;</span>
+          <mat-select id="section_f__f4" placeholder="Comparaison des superficies des terres possédées actuellement à celles possédées (s) il y’a un an ?">
+            <mat-option *ngFor="let c of choices['f4']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F5 &nbsp;</span>
+          <mat-select id="section_f__f5" placeholder="En dehors des terres qui sont votre propriété avec droit coutumier ou légal, est ce que vous :">
+            <mat-option *ngFor="let c of choices['f5']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F6 &nbsp;</span>
+          <input type="number" matInput id="section_f__f6" placeholder="Quelle est la superficie de ces terres qui ne sont pas votre propriété ?"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F7 &nbsp;</span>
+          <mat-select id="section_f__f7" placeholder="Comparaison des superficies de ces terres à celles donc vous disposez il y’a une année ?">
+            <mat-option *ngFor="let c of choices['f7']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <mat-hint>Nb : Ecrire la superficie à l’espace indiqué</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F7 superficie &nbsp;</span>
+          <input type="number" matInput id="section_f__f7_size" placeholder="Quelle est la superficie de l'espace ?"/>
+          <!-- <mat-hint align="start">Ex: <strong>CE002</strong></mat-hint> -->
+        </mat-form-field>
+      </div>
+
+      <h6>Combien de gros bétail et grand troupeau possédez-vous actuellement ?<small>(voir code, 0001)</small></h6>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F8</span>
+          <input type="number" matInput id="section_f__f8_boeufs" placeholder="Boeufs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F8</span>
+          <input type="number" matInput id="section_f__f8_chevaux" placeholder="Chevaux"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F8</span>
+          <input type="number" matInput id="section_f__f8_vaches" placeholder="Vaches"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F8</span>
+          <input type="number" matInput id="section_f__f8_autres" placeholder="Autres"/>
+        </mat-form-field>
+      </div>
+
+      <h6>Combien de têtes de gros bétail possédiez-vous il y’a un an ?</h6>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F9</span>
+          <input type="number" matInput id="section_f__f9_boeufs" placeholder="Boeufs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F9</span>
+          <input type="number" matInput id="section_f__f9_chevaux" placeholder="Chevaux"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F9</span>
+          <input type="number" matInput id="section_f__f9_vaches" placeholder="Vaches"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F9</span>
+          <input type="number" matInput id="section_f__f9_autres" placeholder="Autres"/>
+        </mat-form-field>
+      </div>
+
+      <h6>Combien de têtes de bétails moyens possédez-vous actuellement ?</h6>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F10</span>
+          <input type="number" matInput id="section_f__f10_moutons" placeholder="Moutons"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F10</span>
+          <input type="number" matInput id="section_f__f10_chevres" placeholder="Chevres"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F10</span>
+          <input type="number" matInput id="section_f__f10_porcs" placeholder="Porcs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F10</span>
+          <input type="number" matInput id="section_f__f10_boucs" placeholder="Boucs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F10</span>
+          <input type="number" matInput id="section_f__f10_autres" placeholder="Autres"/>
+        </mat-form-field>
+      </div>
+
+      <h6>Combien de têtes de bétails moyens avez-vous possédez il y’a un an ?</h6>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F11</span>
+          <input type="number" matInput id="section_f__f11_moutons" placeholder="Moutons"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F11</span>
+          <input type="number" matInput id="section_f__f11_chevres" placeholder="Chevres"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F11</span>
+          <input type="number" matInput id="section_f__f11_porcs" placeholder="Porcs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F11</span>
+          <input type="number" matInput id="section_f__f11_boucs" placeholder="Boucs"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F11</span>
+          <input type="number" matInput id="section_f__f11_autres" placeholder="Autres"/>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <span matPrefix>F12 &nbsp;</span>
+          <mat-select id="section_f__f12" placeholder="Les avoirs du ménage ci-après sont en état de marche ?" multiple>
+            <mat-option *ngFor="let c of choices['f12']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F13 &nbsp;</span>
+          <mat-select id="section_f__f13" placeholder="Quel est le système d’énergie propre au ménage qui fonctionne actuellement ?">
+            <mat-option *ngFor="let c of choices['f13']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F14 &nbsp;</span>
+          <mat-select id="section_f__f14" placeholder="Les besoins alimentaires du ménage au cours des 12 derniers mois ont été satisfaits :">
+            <mat-option *ngFor="let c of choices['f14']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F15 &nbsp;</span>
+          <mat-select id="section_f__f15" placeholder="Comment était la situation du ménage comparée à celle il y’a un an ?">
+            <mat-option *ngFor="let c of choices['f15']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F17 &nbsp;</span>
+          <mat-select id="section_f__f17" placeholder="Qui contribue le plus au besoin du ménage ?">
+            <mat-option *ngFor="let c of choices['f17']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F18 &nbsp;</span>
+          <mat-select id="section_f__f18" placeholder="Le ménage dispose-t-il d’un stock de céréales jusqu’à la prochaine récolte ?">
+            <mat-option *ngFor="let c of choices['f18']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>F19 &nbsp;</span>
+          <textarea type="number" matInput id="section_f__f19" placeholder="Pourquoi ?"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>SECTION G: LOGEMENT ET CONFORT DU MENAGE</ng-template>
+
+    <form>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G1 &nbsp;</span>
+          <mat-select id="section_f__g1" placeholder="Quel est le type principal de matériau du toit utilisé pour la couverture de votre habitation">
+            <mat-option *ngFor="let c of choices['g1']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G2 &nbsp;</span>
+          <mat-select id="section_f__g2" placeholder="Quel est le matériau principal utilisé pour la construction de votre logement ? (à observer)">
+            <mat-option *ngFor="let c of choices['g2']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G3a &nbsp;</span>
+          <mat-select id="section_f__g3a" placeholder="Quelle est la principale source d’eau de boisson ? (une seule modalité est possible) (Si A, allez à G3b. Si B écrivez automatiquement NON G3b)">
+            <mat-option *ngFor="let c of choices['g3a']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G3b &nbsp;</span>
+          <mat-select id="section_f__g3b" placeholder="Existe-t-elle dans votre ménage ?">
+            <mat-option *ngFor="let c of choices['g3b']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G4 &nbsp;</span>
+          <mat-select id="section_f__g4" placeholder="Quel est le type de toilette principal utilisé dans le ménage ? (une seule modalité est possible)">
+            <mat-option *ngFor="let c of choices['g4']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G5 &nbsp;</span>
+          <mat-select id="section_f__g5" placeholder="Quelle est la principale source de combustible pour la cuisine ?">
+            <mat-option *ngFor="let c of choices['g5']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+
+      <h6>Quel est le temps mis pour atteindre les installations les plus proches de votre ménage ?</h6>
+      <div>
+        <input type="time" atp-time-picker id="section_g__1" value="" placeholder="Marchés des produits alimentaires"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__2" value="" placeholder="Marchés des produits cosmétiques"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__3" value="" placeholder="Ecole primaire"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__4" value="" placeholder="Ecole secondaire"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__5" value="" placeholder="Ecole universitaire"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__6" value="" placeholder="Structures de formations"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__7" value="" placeholder="Structure sanitaires"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__8" value="" placeholder="Structures administratives"/>
+      </div>
+      <div>
+        <input type="time" atp-time-picker id="section_g__9" value="" placeholder="Points d’eau"/>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <span matPrefix>G6b &nbsp;</span>
+          <mat-select id="section_f__g6b" placeholder="Quel est le principal moyen de déplacement le plus utilisé ?">
+            <mat-option *ngFor="let c of choices['g6b']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G7 &nbsp;</span>
+          <textarea type="number" matInput id="section_g__g7" placeholder="Comment appelle-t-on votre lieu de résidence ?"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G8 &nbsp;</span>
+          <mat-select id="section_f__g8" placeholder="Quel est le matériau principal de construction du sol de votre ménage ? (une seule modalité est possible) et à observer">
+            <mat-option *ngFor="let c of choices['g8']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G9 &nbsp;</span>
+          <mat-select id="section_f__g9" placeholder="Quel est le type de logement dans lequel vous habitez ?">
+            <mat-option *ngFor="let c of choices['g9']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <span matPrefix>G10 &nbsp;</span>
+          <mat-select id="section_f__g10" placeholder="Quel est le système d’évacuation des ordures dans le ménage ?">
+            <mat-option *ngFor="let c of choices['g10']" [value]="c.key">{{ c.label }}</mat-option>
+          </mat-select>
+          <!-- <mat-hint>(a observer. Mais s’il y a pas possibilité bien vouloir poser la question)</mat-hint> -->
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>SECTION H: QUESTIONS SUR LES ENFANTS AGES ENTRE 0 ET 4 ANS</ng-template>
 
     <div>
       <button mat-button matStepperNext>Suivant</button>

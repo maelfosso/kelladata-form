@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatSelectChange } from '@angular/material';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs/Observable'
@@ -149,13 +150,34 @@ export class DefaultFormComponent implements OnInit {
   @ViewChild('stepper')
   stepper;
   selectedIndex = 0;
+
+  surveyForm:FormGroup;
+
   constructor(
     private renderer: Renderer,
+    private formBuilder: FormBuilder,
     private dataService: DataService
   ) { }
 
   ngOnInit() {
+    this._initForm();
+  }
 
+  _initForm() {
+    this.surveyForm = this.formBuilder.group({});
+
+    Object.keys(defaultSurvey).forEach(section => {
+      let sectionFormGroup = this.formBuilder.group({});
+
+      Object.keys(defaultSurvey[section]).forEach(question => {
+        let questionFormControl: FormControl
+        let type:string = defaultSurvey[section][question].type;
+
+        sectionFormGroup.addControl(question, this.formBuilder.control(''));
+      })
+      this.surveyForm.addControl(section, sectionFormGroup);
+    });
+    console.log(this.surveyForm);
   }
 
   _resetData() {

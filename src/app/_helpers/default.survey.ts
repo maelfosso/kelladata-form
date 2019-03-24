@@ -12,6 +12,11 @@ export const defaultSurvey:any = {
     'a9':{type:'string'}
   },
   'section_b': {
+    _params: {
+      _type: 'array',
+      _max: 20,
+      _id: 'b1'
+    },
     'b1': {type: 'string'},
     'b2': {type: 'single_choice', kv: { '1':'M','2':'F'}},
     'b3': {type: 'number'},
@@ -23,6 +28,11 @@ export const defaultSurvey:any = {
     'b9': {type: 'string'}
   },
   'section_c': {
+    _params: {
+      _type: 'array',
+      _max: 'section_b',
+      _id: 'b1'
+    },
     'code': {type:'string', added: true},
     'c1': {type: 'single_choice', kv: {'10':'Bassa','20':'Francais','30':'Anglais','40':'Autres'}},
     'c2': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'2':'c9'}},
@@ -35,6 +45,11 @@ export const defaultSurvey:any = {
     'c9': {type: 'text'}
   },
   'section_d': {
+    _params: {
+      _type: 'array',
+      _max: 'section_b',
+      _id: 'b1'
+    },
     'code': {type:'string', added: true},
     'sexe': {type:'string', added: true},
     'age': {type:'string', added: true},
@@ -48,6 +63,11 @@ export const defaultSurvey:any = {
     'd7': {type: 'single_choice', kv: {"1":"Pas nécessaire","2":"Manque de moyen financier","3":"Distance longue","4":"Absence de soins appropriés","5":"Mauvais accueil","6":"Autres"}},
   },
   'section_e': {
+    _params: {
+      _type: 'array',
+      _max: 'section_b',
+      _id: 'b1'
+    },
     'e1': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}},
     'e2': {type: 'single_choice', kv: {"1":"Etait malade","2":"Etait en vacances","3":"Etait au repos","4":"Etait à la recherche du travail","5":"A eu un problème","6":"Autres"}},
     'e3': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'1':'e12'}},

@@ -192,9 +192,9 @@ export class DefaultFormComponent implements OnInit {
       console.log(this.surveyForm.get(section) instanceof FormGroup)
       for(let i = fidx + 1; i < tidx; i++) {
         if (this.surveyForm.get(section) instanceof FormArray) {
-          var l = this.surveyForm.get(section).controls.length;
-          this.surveyForm.get(section).controls[l - 1].get(keys[i]).setValue('')
-          this.surveyForm.get(section).controls[l - 1].get(keys[i]).disable()
+          var l = (<FormArray>this.surveyForm.get(section)).controls.length;
+          // (<FormControl>(<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i])).setValue('')
+          (<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i]).disable()
         } else if (this.surveyForm.get(section) instanceof FormGroup) {
           this.surveyForm.get(section).get(keys[i]).setValue('')
           this.surveyForm.get(section).get(keys[i]).disable()

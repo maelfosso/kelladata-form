@@ -13,9 +13,10 @@ import { FormsComponent } from './forms.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
 import { FillingFormComponent } from './filling-form/filling-form.component';
 import { StatsComponent } from './stats/stats.component';
+import { ListFormsComponent } from './list-forms/list-forms.component';
 
 @NgModule({
-  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent],
+  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent, ListFormsComponent],
   imports: [
     CommonModule,
     AngularFormsModule, ReactiveFormsModule,

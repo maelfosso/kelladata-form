@@ -3,21 +3,8 @@
     <nav>
       <div class=""><a href="#">Filled Forms</a></div>
     </nav>
-    <section class="pl-4">
-      <h4>Select a form to fill</h4>
-
-      <div class="kella-form-list">
-        <div class="kella-form-item">
-          <div class="title">Etude pilote du programme KELLEWANDA</div>
-          <p class="description">Indicateurs de suivi du programme KELLEWANDA au Cameroun</p>
-
-          <div class="actions">
-            <a routerLink="default/stats" class="kella-btn-analysis">Analysis</a>
-            <a routerLink="default" class="kella-btn-open">Open</a>
-            <!-- <a routerLink="#" class="kella-btn-delete">Delete</a> -->
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="kella-forms-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-// import { NavbarComponent } from '../layout/navbar.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 import { CdkTableModule } from '@angular/cdk/table';
@@ -29,12 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule,
     MatToolbarModule, MatTooltipModule,
     CdkTableModule,
-  // imports: [RouterModule.forChild(routes)],
-  // exports: [RouterModule]
   ],
-  declarations: [
-    // NavbarComponent
-  NavbarComponent],
+  declarations: [NavbarComponent],
   exports: [
     NavbarComponent,
     AmazingTimePickerModule,

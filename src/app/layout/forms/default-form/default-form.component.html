@@ -217,7 +217,7 @@
             <mat-form-field>
               <span matPrefix>C2 &nbsp;</span>
               <!-- <mat-select id="section_c__c2" placeholder="A deja frequente l'ecole ?" name="c2" [(ngModel)]="data.section_c_new.c2"> -->
-              <mat-select id="section_c__c2" placeholder="A deja frequente l'ecole ?" formControlName="c2">
+              <mat-select id="section_c__c2" placeholder="A deja frequente l'ecole ?" formControlName="c2" (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['c2']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -313,7 +313,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>D1 &nbsp;</span>
-              <mat-select id="section_d__d1" placeholder="Maladies/blessures comme obstacle au travail et à l’école durant les 15 derniers jours" formControlName="d1">
+              <mat-select id="section_d__d1" placeholder="Maladies/blessures comme obstacle au travail et à l’école durant les 15 derniers jours" formControlName="d1"
+                   (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['d1']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -333,7 +334,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>D4 &nbsp;</span>
-              <mat-select id="section_d__d4" placeholder="Sollicitation des soins médicaux durant les 15 derniers jours" formControlName="d4">
+              <mat-select id="section_d__d4" placeholder="Sollicitation des soins médicaux durant les 15 derniers jours" formControlName="d4"
+                  (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['d4']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -400,7 +402,7 @@
           <div>
             <mat-form-field>
               <span matPrefix>E1 &nbsp;</span>
-              <mat-select id="section_e__e1" placeholder="Avez-vous travaillez la semaine dernière ?" formControlName="e1">
+              <mat-select id="section_e__e1" placeholder="Avez-vous travaillez la semaine dernière ?" formControlName="e1" (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e1']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -416,7 +418,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>E3 &nbsp;</span>
-              <mat-select id="section_e__e3" placeholder="Etes-vous prêt ou disponible pour travailler ?" formControlName="e3">
+              <mat-select id="section_e__e3" placeholder="Etes-vous prêt ou disponible pour travailler ?" formControlName="e3"
+                (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e3']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -462,7 +465,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>E9 &nbsp;</span>
-              <mat-select id="section_e__e9" placeholder="Avez-vous cherché à augmenter vos revenus ?" formControlName="e9">
+              <mat-select id="section_e__e9" placeholder="Avez-vous cherché à augmenter vos revenus ?" formControlName="e9"
+                (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e9']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -478,7 +482,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>E11 &nbsp;</span>
-              <mat-select id="section_e__e11" placeholder="Etes-vous encore prêts à prendre un travail supplémentaire dans les 04 semaines à venir ?" formControlName="e11">
+              <mat-select id="section_e__e11" placeholder="Etes-vous encore prêts à prendre un travail supplémentaire dans les 04 semaines à venir ?" formControlName="e11"
+                  (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e11']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -495,7 +500,7 @@
             <mat-form-field>
               <span matPrefix>E13 &nbsp;</span>
               <mat-select id="section_e__e13" placeholder="Est occupée, (toute personne ayant travaillé au moins 03 mois de façon continue au cours des 12 derniers mois). Est-ce votre cas ?"
-                   formControlName="e13">
+                   formControlName="e13" (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e13']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -519,7 +524,7 @@
           <div>
             <mat-form-field>
               <span matPrefix>E16 &nbsp;</span>
-              <mat-select id="section_e__e16" placeholder="Avez-vous droit à une pension de retraite dans ce travail?" formControlName="e16">
+              <mat-select id="section_e__e16" placeholder="Avez-vous droit à une pension de retraite dans ce travail?" formControlName="e16" (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e16']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -601,7 +606,7 @@
             <mat-form-field>
               <span matPrefix>E26 &nbsp;</span>
               <mat-select id="section_e__e26" placeholder="Avez-vous exercé d’autres activités en même temps que l’emploi principal au cours des 12 derniers mois ?"
-                   formControlName="e26">
+                   formControlName="e26" (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e26']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -654,7 +659,8 @@
           <div>
             <mat-form-field>
               <span matPrefix>E32 &nbsp;</span>
-              <mat-select id="section_e__e32" placeholder="Avant votre emploi principal au cours des 12 derniers mois, avez-vous occupez une autre activité ?" formControlName="e32">
+              <mat-select id="section_e__e32" placeholder="Avant votre emploi principal au cours des 12 derniers mois, avez-vous occupez une autre activité ?" formControlName="e32"
+                  (selectionChange)="selectionChange($event)">
                 <mat-option *ngFor="let c of choices['e32']" [value]="c.key">{{ c.label }}</mat-option>
               </mat-select>
             </mat-form-field>

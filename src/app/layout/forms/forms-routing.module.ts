@@ -4,13 +4,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsComponent } from './forms.component';
 import { DefaultFormComponent } from './default-form/default-form.component';
 import { FillingFormComponent } from './filling-form/filling-form.component';
+import { ListFormsComponent } from './list-forms/list-forms.component';
 import { StatsComponent } from './stats/stats.component';
 
 const routes: Routes = [
-  { path: '', component: FormsComponent },
-  { path: 'default', component: DefaultFormComponent },
-  { path: ':survey', component: FillingFormComponent },
-  { path: ':survey/stats', component: StatsComponent },
+  {
+    path: '',
+    component: FormsComponent,
+    children: [
+      { path: '', component: ListFormsComponent },
+      { path: 'default', component: DefaultFormComponent },
+      { path: ':survey', component: FillingFormComponent },
+      { path: ':survey/stats', component: StatsComponent },
+    ]
+  },
 ];
 
 @NgModule({

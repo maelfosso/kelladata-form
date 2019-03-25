@@ -155,9 +155,12 @@ export class DefaultFormComponent implements OnInit {
       console.log("We jump to ", defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value]);
 
       let jumpToId = defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value];
+      // console.log(ksplit, ' --- ', jumpToId);
       this._disableElement(event.source.id, jumpToId);
-      const element = this.renderer.selectRootElement(`#${ksplit[0]}__${jumpToId}`)
-      setTimeout(() => element.focus(), 0)
+
+      // const element = this.renderer.selectRootElement(`#${ksplit[0]}__${jumpToId}`)
+      // element.focus();
+      // setTimeout(() => element.focus(), 0)
     }
   }
 
@@ -166,27 +169,67 @@ export class DefaultFormComponent implements OnInit {
     let tsplit = to.split('__');
 
     let fsection = fsplit[0], felt = fsplit[1];
-    let tsection, telt;
+    let tsection, telt; // = tsplit[0], felt = tsplit[1];
 
     if (tsplit.length == 1) {
       tsection = fsection;
-      telt = tsplit[0]
+      telt = tsplit[0] == 'end_subsection' ? 'end_subsection' : tsplit[0];
     } else {
       tsection = tsplit[0]
       telt = tsplit[1]
     }
 
+
     if (fsection == tsection) {
       let section = fsection;
+      console.log("STEP 0");
+      let keys = Object.keys(defaultSurvey[section])
+      let fidx = keys.indexOf(felt);
+      let tidx = keys.indexOf(telt) == -1 ? keys.length : keys.indexOf(telt);
 
-      let idxs = Object.keys(defaultSurvey[section])
-      let fidx = idxs.indexOf(felt);
-      let tidx = idxs.indexOf(telt);
+      console.log(this.surveyForm.get(section))
+      console.log(this.surveyForm.get(section) instanceof FormArray)
+      console.log(this.surveyForm.get(section) instanceof FormGroup)
       for(let i = fidx + 1; i < tidx; i++) {
-        const element = this.renderer.selectRootElement(`#${section}__${idxs[i]}`)
-        setTimeout(() => element.disable(), 0)
+        if (this.surveyForm.get(section) instanceof FormArray) {
+          var l = this.surveyForm.get(section).controls.length;
+          this.surveyForm.get(section).controls[l - 1].get(keys[i]).setValue('')
+          this.surveyForm.get(section).controls[l - 1].get(keys[i]).disable()
+        } else if (this.surveyForm.get(section) instanceof FormGroup) {
+          this.surveyForm.get(section).get(keys[i]).setValue('')
+          this.surveyForm.get(section).get(keys[i]).disable()
+        }
       }
+
+      return;
     }
+
+    console.log("STEP 1")
+    // STEP 1
+    let fKeys = Object.keys(defaultSurvey[tsection])
+    let fidx = fKeys.indexOf(felt);
+    for(let i = fidx + 1; i < fKeys.length; i++) {
+      this._sectionGroupForm(tsection).get(fKeys[i]).disable()
+    }
+
+    console.log("STEP 2")
+    // STEP 2
+    let sectionKeys = Object.keys(defaultSurvey);
+    let idxFrom = sectionKeys.indexOf(fsection)
+    let idxTo = sectionKeys.indexOf(tsection)
+
+    for(let i = idxFrom + 1; i < idxTo; i++) {
+      this.surveyForm.get(sectionKeys[i]).disable()
+    }
+
+    console.log("STEP 3")
+    // STEP 3
+    let tKeys = Object.keys(defaultSurvey[tsection]);
+    let endIdx = tKeys.indexOf(telt)
+    for (let i = 0; i < endIdx; i++) {
+      this.surveyForm.get(tsection).get(tKeys[i])
+    }
+
   }
 }
 
@@ -204,3 +247,25 @@ export class CustomListDatasource extends DataSource<any> {
     }
 
 }
+
+
+    // let keys = Object.keys(defaultSurvey[section])
+    // let fidx = keys.indexOf(felt);
+    // let tidx = keys.indexOf(telt);
+    // if (tidx != -1) {
+    //   for(let i = fidx + 1; i < tidx; i++) {
+    //     // const element = this.renderer.selectRootElement(`#${section}__${idxs[i]}`)
+    //     // setTimeout(() => element.disable(), 0)
+    //     this._sectionGroupForm(section).get(keys[i]).disable()
+    //   }
+    // } else {
+    //   let currentSection = fsection;
+    //   while (tidx == -1) {
+    //     let keys = Object.keys(defaultSurvey[currentSection])
+    //     for(let i = fidx + 1; i < keys.length - 1; i++) {
+    //       this._sectionGroupForm(section).get(keys[i]).disable()
+    //     }
+    //
+    //     // currentSection
+    //   }
+    // }

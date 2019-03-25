@@ -51,7 +51,7 @@ export const choices: any = {
   "d7": [ {key:"1", label:"Pas nécessaire"}, {key:"2", label:"Manque de moyen financier"}, {key:"3", label:"Distance longue"}, {key:"4", label:"Absence de soins appropriés"}, {key:"5", label:"Mauvais accueil"}, {key:"6", label:"Autres"}],
   "e1": [ {key: "1", label:"Oui", jumpTo: "e4"}, {key:"2", label:"Non"}],
   "e2": [ {key: "1", label:"Etait malade"}, {key:"2", label:"Etait en vacances"}, {key:"3", label:"Etait au repos"}, {key:"4", label:"Etait à la recherche du travail"}, {key:"5", label:"A eu un problème"}, {key:"6", label:"Autres"}],
-  "e3": [ {key: "1", label:"Oui", jumpTo: "e12"}, {key:"2", label:"Non"}],
+  "e3": [ {key: "1", label:"Oui", jumpTo: "e12"}, {key:"2", label:"Non", jumpTo:'end_subsection'}],
   "e5": [ {key: "1", label:"Electricien"}, {key:"2", label:"Commerçant"}, {key:"3", label:"Agriculteur/Eleveur"}, {key:"4", label:"Domestique/Ménagère"}, {key:"5", label:"Chasseur"}, {key:"6", label:"Bucheron"}, {key:"7", label:"Couturier"}, {key:"8", label:"Macon"}, {key:"9", label:"Secretaire"}, {key:"10", label:"Autres"}],
   "e6": [ {key: "1", label:"Salaire"}, {key:"2", label:"Paiementen nature"}, {key:"3", label:"Paiement jour/heure"}, {key:"4", label:"Aide familiale rémunéré"}, {key:"5", label:"A mon compte"}, {key:"6", label:"Autres"}],
   "e7": [ {key: "1", label:"Prive"}, {key:"2", label:"Public"}, {key:"3", label:"Para-publique"}, {key:"4", label:"Pour le compte d’un employeur"}],

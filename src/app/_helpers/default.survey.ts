@@ -68,9 +68,9 @@ export const defaultSurvey:any = {
       _max: 'section_b',
       _id: 'b1'
     },
-    'e1': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}},
+    'e1': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'1':'e4'}},
     'e2': {type: 'single_choice', kv: {"1":"Etait malade","2":"Etait en vacances","3":"Etait au repos","4":"Etait à la recherche du travail","5":"A eu un problème","6":"Autres"}},
-    'e3': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'1':'e12'}},
+    'e3': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'1':'e12', '2':'end_subsection'}},
     'e4': {type: 'string'},
     'e5': {type: 'single_choice', kv: {"1":"Electricien","2":"Commerçant","3":"Agriculteur/Eleveur","4":"Domestique/Ménagère","5":"Chasseur","6":"Bucheron","7":"Couturier","8":"Macon","9":"Secretaire","10":"Autres"}},
     'e6': {type: 'single_choice', kv: {"1":"Salaire","2":"Paiementen nature","3":"Paiement jour/heure","4":"Aide familiale rémunéré","5":"A mon compte","6":"Autres"}},

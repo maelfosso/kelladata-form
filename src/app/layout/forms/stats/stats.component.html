@@ -2,8 +2,41 @@
 <!-- <div *ngFor="let section of stats | groupBy: 'group' | pairs">
   {{ section | json }}
 </div> -->
+<div *ngFor="let section of groupedStats | keys" class="m-4">
+  <div class="title">
+    {{section}}
+  </div>
+  <div class="row">
+    <div class="graph col-md-6 mb-4 mt-4" *ngFor="let variable of groupedStats[section]" [ngSwitch]="variable.question.type">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{ variable.name }}</mat-card-title>
+          <mat-card-subtitle>{{ variable.type }}</mat-card-subtitle>
+        </mat-card-header>
 
-<mat-accordion>
+        <mat-card-content *ngSwitchCase="'text'">TEXT</mat-card-content>
+        <mat-card-content *ngSwitchCase="'string'">
+          <mat-chip-list>
+            <mat-chip *ngFor="let value of variable.stats">{{ value }}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+        <mat-card-content *ngSwitchCase="'number'">NUMBER</mat-card-content>
+        <mat-card-content *ngSwitchCase="'single_choice'">
+          <canvas baseChart
+              [data]="variable.stats | values"
+              [labels]="variable.question.kv | values"
+              chartType="pie"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="barChartPlugins">
+              </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-accordion>
   <mat-expansion-panel *ngFor="let section of groupedStats | keys" class="m-4" expanded="true" >
     <mat-expansion-panel-header>
       <mat-panel-title>{{ section | ucfirst }}</mat-panel-title>
@@ -37,7 +70,7 @@
       </mat-card>
     </div>
   </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion> -->
 
 <div *ngFor="let variable of stats" [ngSwitch]="variable.question.type">
   <!-- {{ variable.question.type | json }} -->

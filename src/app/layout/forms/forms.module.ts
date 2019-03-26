@@ -14,9 +14,10 @@ import { DefaultFormComponent } from './default-form/default-form.component';
 import { FillingFormComponent } from './filling-form/filling-form.component';
 import { StatsComponent } from './stats/stats.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
+import { PieChartComponent } from './stats/pie-chart/pie-chart.component';
 
 @NgModule({
-  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent, ListFormsComponent],
+  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent, ListFormsComponent, PieChartComponent],
   imports: [
     CommonModule,
     AngularFormsModule, ReactiveFormsModule,

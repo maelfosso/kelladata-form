@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import * as d3 from 'd3';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
+import * as d3Shape from 'd3-shape';
 
 @Component({
   selector: 'app-histogram',
@@ -13,7 +15,7 @@ import * as d3Axis from 'd3-axis';
 export class HistogramComponent implements OnInit {
 
   @Input()
-  data:any;
+  data:number[];
   @Input()
   xName:string;
   @Input()
@@ -51,16 +53,17 @@ export class HistogramComponent implements OnInit {
 
   _initAxis() {
     this.x = d3Scale.scaleLinear()
-        .domain(d3.extend(this.data)).nice()
+        .domain(d3Array.extent(this.data)).nice()
+        // .domain([d3Array.min(this.data), d3Array.max(this.data)]).nice()
         .range([this.margin.left, this.width - this.margin.right]);
 
-    this.bins = d3Shape.histogram()
+    this.bins = d3.histogram()
         .domain(this.x.domain())
         .thresholds(this.x.ticks(40))
-      (data);
+      (this.data);
 
     this.y = d3Scale.scaleLinear()
-        .domain([0, d3.max(this.bins, (d:any) => d.length)])
+        .domain([0, d3Array.max(this.bins, (d:any) => d.length)])
         .range([this.height - this.margin.bottom, this.margin.top])
   }
 

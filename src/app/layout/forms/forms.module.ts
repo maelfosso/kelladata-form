@@ -16,9 +16,10 @@ import { StatsComponent } from './stats/stats.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
 import { PieChartComponent } from './stats/pie-chart/pie-chart.component';
 import { BarChartComponent } from './stats/bar-chart/bar-chart.component';
+import { HistogramComponent } from './stats/histogram/histogram.component';
 
 @NgModule({
-  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent, ListFormsComponent, PieChartComponent, BarChartComponent],
+  declarations: [FormsComponent, DefaultFormComponent, FillingFormComponent, StatsComponent, ListFormsComponent, PieChartComponent, BarChartComponent, HistogramComponent],
   imports: [
     CommonModule,
     AngularFormsModule, ReactiveFormsModule,

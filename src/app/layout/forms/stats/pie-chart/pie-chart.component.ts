@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
@@ -11,6 +11,9 @@ import * as d3Shape from 'd3-shape';
 })
 export class PieChartComponent implements OnInit {
 
+  @Input()
+  data:any;
+  
   private margin = {top:20, right:20, bottom:20, left:40}
   private width: number;
   private height: number;

@@ -70,7 +70,7 @@ export class HistogramComponent implements OnInit {
       (this.data);
 
     this.y = d3Scale.scaleLinear()
-        .domain([0, d3.max(this.bins, (d:any) => d.length)])
+        .domain([0, d3.max(this.bins, (d:any) => +d.length)])
         .range([this.height - this.margin.bottom, this.margin.top])
   }
 

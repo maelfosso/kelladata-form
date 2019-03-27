@@ -13,7 +13,7 @@
           <mat-card-title>{{ variable.name }}</mat-card-title>
           <mat-card-subtitle>{{ variable.type }}</mat-card-subtitle>
         </mat-card-header>
-        <h4>{{variable.question.type}}</h4>
+        
         <mat-card-content *ngSwitchCase="'text'">
           <mat-chip-list>
             <mat-chip *ngFor="let value of variable.stats">{{ value }}</mat-chip>
@@ -25,7 +25,7 @@
           </mat-chip-list>
         </mat-card-content>
         <mat-card-content *ngSwitchCase="'number'">
-          <app-histogram [data]="variable.stats" x-name="" y-name="Frequences"></app-histogram>
+          <app-histogram [data]="variable.stats" [xName]="'Xname...'" [yName]="'Frequences'"></app-histogram>
         </mat-card-content>
         <mat-card-content *ngSwitchCase="'single_choice'" id="{{ variable.name }}">
           <app-bar-chart [idx]="variable.name" [data]="variable.stats"></app-bar-chart>

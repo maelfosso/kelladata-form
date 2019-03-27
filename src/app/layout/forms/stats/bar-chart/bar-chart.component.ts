@@ -32,12 +32,6 @@ export class BarChartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data);
-    console.log(this.el.nativeElement.parentNode);
-
-    console.log('height---' + this.el.nativeElement.parentNode.offsetHeight);  //<<<===here
-    console.log('width---' + this.el.nativeElement.parentNode.offsetWidth);
-
     this._initSvg();
     this._initAxis();
     this._drawAxis();
@@ -46,9 +40,7 @@ export class BarChartComponent implements OnInit {
 
   _initSvg() {
     this.svg = d3.select(this.el.nativeElement).select('svg')
-    // this.svg = d3.select(`#${this.idx}`).select('svg')
         .attr('width', this.el.nativeElement.parentNode.offsetWidth);
-        // .attr('height', this.el.nativeElement.parentNode.offsetHeight);
 
     this.width = +this.svg.attr('width') - this.margin.right - this.margin.left;
     this.height = +this.svg.attr('height') - this.margin.top - this.margin.bottom;

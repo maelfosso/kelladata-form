@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
@@ -13,7 +13,9 @@ import * as d3Axis from 'd3-axis';
 export class BarChartComponent implements OnInit {
 
   @Input()
-  data:any
+  data:any[];
+  @Input()
+  idx:string;
 
   private margin = {top:20, right:20, bottom:20, left:40}
   private width: number;
@@ -25,9 +27,17 @@ export class BarChartComponent implements OnInit {
   private svg:any;
   private g:any;
 
-  constructor() { }
+  constructor(
+    private el:ElementRef
+  ) { }
 
   ngOnInit() {
+    console.log(this.data);
+    console.log(this.el.nativeElement.parentNode);
+
+    console.log('height---' + this.el.nativeElement.parentNode.offsetHeight);  //<<<===here
+    console.log('width---' + this.el.nativeElement.parentNode.offsetWidth);
+
     this._initSvg();
     this._initAxis();
     this._drawAxis();
@@ -35,7 +45,10 @@ export class BarChartComponent implements OnInit {
   }
 
   _initSvg() {
-    this.svg = d3.select('svg');
+    this.svg = d3.select(this.el.nativeElement).select('svg')
+    // this.svg = d3.select(`#${this.idx}`).select('svg')
+        .attr('width', this.el.nativeElement.parentNode.offsetWidth);
+        // .attr('height', this.el.nativeElement.parentNode.offsetHeight);
 
     this.width = +this.svg.attr('width') - this.margin.right - this.margin.left;
     this.height = +this.svg.attr('height') - this.margin.top - this.margin.bottom;
@@ -50,8 +63,9 @@ export class BarChartComponent implements OnInit {
         .padding(0.1);
     this.y = d3Scale.scaleLinear()
         .rangeRound([this.height, 0]);
-    this.x.domain(this.data.map((d:any) => d.label));
-    this.y.domain(this.data.map((d:any) => d.value));
+    this.x.domain(this.data.map((d:any) => d.key));
+    this.y.domain([0, d3Array.max(this.data, (d:any) => +d.value)]);
+    // this.y.domain(this.data.map((d:any) => +d.value));
   }
 
   _drawAxis() {
@@ -61,7 +75,8 @@ export class BarChartComponent implements OnInit {
         .call(d3Axis.axisBottom(this.x));
     this.g.append('g')
         .attr('class', 'axis axis--y')
-        .call(d3Axis.axisLeft(this.y).ticks(10, '%'))
+        .call(d3Axis.axisLeft(this.y).ticks(10))
+        // .call(d3Axis.axisLeft(this.y).ticks(10, '%'))
         .append('text')
         .attr('class', 'axis-title')
         .attr('transform', 'rotate(-90)')
@@ -77,9 +92,9 @@ export class BarChartComponent implements OnInit {
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', (d:any) => this.x(d.label))
-        .attr('y', (d:any) => this.y(d.value))
+        .attr('x', (d:any) => this.x(d.key))
+        .attr('y', (d:any) => this.y(+d.value))
         .attr('width', this.x.bandwidth())
-        .attr('height', (d:any) => this.height - this.y(d.value));
+        .attr('height', (d:any) => this.height - this.y(+d.value));
   }
 }

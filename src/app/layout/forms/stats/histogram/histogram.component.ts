@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import * as d3 from 'd3';
-import * as d3 from 'd3-selection';
+import * as d3Selection from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
@@ -35,6 +35,8 @@ export class HistogramComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.data);
+    
     this._initSvg();
     this._initAxis();
     this._drawAxis();
@@ -63,7 +65,7 @@ export class HistogramComponent implements OnInit {
       (this.data);
 
     this.y = d3Scale.scaleLinear()
-        .domain([0, d3Array.max(this.bins, (d:any) => d.length)])
+        .domain([0, d3.max(this.bins, (d:any) => d.length)])
         .range([this.height - this.margin.bottom, this.margin.top])
   }
 

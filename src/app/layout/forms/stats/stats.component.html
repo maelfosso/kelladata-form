@@ -13,23 +13,30 @@
           <mat-card-title>{{ variable.name }}</mat-card-title>
           <mat-card-subtitle>{{ variable.type }}</mat-card-subtitle>
         </mat-card-header>
-
-        <mat-card-content *ngSwitchCase="'text'">TEXT</mat-card-content>
+        <h4>{{variable.question.type}}</h4>
+        <mat-card-content *ngSwitchCase="'text'">
+          <mat-chip-list>
+            <mat-chip *ngFor="let value of variable.stats">{{ value }}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
         <mat-card-content *ngSwitchCase="'string'">
           <mat-chip-list>
             <mat-chip *ngFor="let value of variable.stats">{{ value }}</mat-chip>
           </mat-chip-list>
         </mat-card-content>
-        <mat-card-content *ngSwitchCase="'number'">NUMBER</mat-card-content>
-        <mat-card-content *ngSwitchCase="'single_choice'">
-          <canvas baseChart
+        <mat-card-content *ngSwitchCase="'number'">
+          <app-histogram [data]="variable.stats" x-name="" y-name="Frequences"></app-histogram>
+        </mat-card-content>
+        <mat-card-content *ngSwitchCase="'single_choice'" id="{{ variable.name }}">
+          <app-bar-chart [idx]="variable.name" [data]="variable.stats"></app-bar-chart>
+          <!-- <canvas baseChart
               [data]="variable.stats | values"
               [labels]="variable.question.kv | values"
               chartType="pie"
               [options]="pieChartOptions"
               [plugins]="pieChartPlugins"
               [legend]="barChartPlugins">
-              </canvas>
+              </canvas> -->
         </mat-card-content>
       </mat-card>
     </div>

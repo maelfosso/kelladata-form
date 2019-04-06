@@ -167,6 +167,46 @@ export const defaultSurvey:any = {
     'g9': {type: 'single_choice', kv:{"1":"Immeuble à appartement","2":"Villa","3":"Maison individuel simple","4":"Maison traditionnel ou case","5":"Hutte","6":"Autres"}},
     'g10': {type: 'single_choice', kv:{"1":"Poubelle","2":"Existence d’un service de ramassage/collecte","3":"Dans la rivière","4":"Autres"}},
 
+  },
+  'section_m': {
+    'm1': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}, jumpTo: {'2':'m4'}},
+    'm2': {type: 'multiple_choice', kv: {'1':'Transport','2':'Scolarisation','3':'Factures','4':'Factures(Eau, Electricite)','6':'Intrants/Materiels agricole','7':'Sante','8':'Autres'}, post:[{'1':'m2_transport','2':'m2_scolarisations','3':'m2_vestimentaires','4':'m2_factures','5':'m2_outils_menageres','6':'m2_int_mat_agric','7':'m2_sante','8':'m2_others'}]},
+    'm2_transport': {type: 'number'},
+    'm2_scolarisations': {type: 'number'},
+    'm2_vestimentaires': {type: 'number'},
+    'm2_factures': {type: 'number'},
+    'm2_outils_menageres': {type: 'number'},
+    'm2_int_mat_agric': {type: 'number'},
+    'm2_sante': {type: 'number'},
+    'm2_others': {type: 'string'},
+    'm2_others_value': {type: 'number'},
+    'm3': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}},
+    'm4': {type: 'multiple_choice', kv: {'1':'Bois','2':"Charbon",'3':'Loyer','4':"Eau",'5':"Electricite",'6':'Gaz','7':"Petrole",'8':"Achat de piles",'9':"Autres"}, post:[{'1':'m4_bois','2':'m4_charbon','3':'m4_loyer','4':'m4_eau','5':'m4_electricite','6':'m4_gaz','7':'m4_petrole','8':'m4_pile','9':'m4_others'}]},
+    'm4_bois': {type: 'number'},
+    'm4_charbon': {type: 'number'},
+    'm4_loyer': {type: 'number'},
+    'm4_eau': {type: 'number'},
+    'm4_electricite': {type: 'number'},
+    'm4_gaz': {type: 'number'},
+    'm4_petrole': {type: 'number'},
+    'm4_pile': {type: 'number'},
+    'm4_others': {type: 'string'},
+    'm4_others_value': {type: 'number'},
+    'm5': {type: 'number'}
+  },
+  'section_n': {
+    'n1': {type: 'multiple_choice', kv: {'1':'Creation des services de soins specialises pour enfants, adultes et personnes de troisieme age', '2':'Rapprochement des services de soins de la population', '3':'Fluidite de la qualite du service dans les soins de sante', '4':'Ouverture des centres traditionnels de sante', '5':'Autre'}, post:{'5':'n1_others'}},
+    'n1_others': {type: 'string', hidden:"true"},
+    'n2': {type: 'multiple_choice', kv: {'1':'Insertion socioprofessionelles des jeunes apres leurs formations','2':'Creation des structures educatives repondant aux besoins et a la demande de la population','3':'Pour les personnes desoeuvrees et qui desirent poursuivre les etudes, faciliter leur inscription dans les ecoles appropries','4':"Ouverture d'un centre pour apprentissage en langue locale pour les jeunes",'5':"Mettre en place une bibliotheque fonctionnelle pour les apprenants",'6':"Autres" }, post:{'6':'n2_others'}},
+    'n2_others': {type: 'string', hidden:"true"},
+    'n3': {type: 'single_choice', kv: {'1':'Agro-pastorale','2':'Enseignement','3':'Commerce','4':'Recyclage et gestion des ordures','5':'Administration','6':'Construction','7':'Action sociale','8':'Ingenieurie','9':'Communication','10':'Autres'}, post:{'10':'n3_others'}},
+    'n3_others': {type: 'string', hidden:"true"},
+    'n4': {type: 'multiple_choice', kv: {'1':"Assurance d'une securite sociale",'2':"Disposition pour payer les conges annuels",'3':"Eviter les licenciements abusifs",'4':"Organiser les concours du meilleur projet par secteur d'activite","5":"Mettre en place les meilleurs projets d'activite","6":"Autres"}, post:{'6':'n4_others'}},
+    'n4_others': {type: 'string', hidden:"true"},
+    'n5': {type: 'multiple_choice', kv: {'1':"Creation d'une ecole d'agriculture",'2':"Faciliter la procedure d'obtention du titre foncier pour les terres detenues",'3':"Application directe et reconnaissance de la decision du tribunal coutumier en matiere de reglement de litige foncier",'4':"Mettre les agriculteurs en cooperative",'5':"Faciliter et promouvoir l'obtention des intrants naturels des produits agricoles",'6':"Campagne de sensibilisation sur la meteriologie",'7':"Amenager les routes pour les faciliter le deplacement dans les installations les plus proches",'8':"Transformation des produits agricoles sur place",'9':"Mettre sur pied un systeme de conservation des produits agricoles jusqu'a la prochaine recolte",'10':"Autres"}, post:{'10':'n5_others'}},
+    'n5_others': {type: 'string', hidden:"true"},
+    'n6': {type: 'multiple_choice', kv: {'1':"Construction des logements avec les materiaux locaux",'2':"Construction des logements avec les materiaux contemporains",'3':"Construction des logements ecologiques et durables",'4':'Autres'}, post:{'4':'n6_others'}}, // {action:'display', question:'n6_others', value:'4'}},
+    'n6_others': {type: 'string', hidden:"true"}
   }
 };
 

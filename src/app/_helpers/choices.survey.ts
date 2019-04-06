@@ -1,12 +1,6 @@
 export const choices: any = {
-  "b2" : [
-    { key: "1", label: "M" },
-    { key: "2", label: "F" },
-  ],
-  "b5" : [
-    { key: "1", label: "Oui" },
-    { key: "2", label: "Non" },
-  ],
+  "b2" : [{ key: "1", label: "M" }, { key: "2", label: "F" }],
+  "b5" : [{ key: "1", label: "Oui" },{ key: "2", label: "Non" }],
   // "b8" : [
   //   { key: "1", label: "Oui" },
   //   { key: "2", label: "Non" },
@@ -108,4 +102,12 @@ export const choices: any = {
   'h3': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
   'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
   'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+
+  "n1":[{"key":"1","label":"Creation des services de soins specialises pour enfants, adultes et personnes de troisieme age"},{"key":"2","label":"Rapprochement des services de soins de la population"},{"key":"3","label":"Fluidite de la qualite du service dans les soins de sante"},{"key":"4","label":"Ouverture des centres traditionnels de sante"},{"key":"5","label":"Autre"}],
+  "n2":[{"key":"1","label":"Insertion socioprofessionelles des jeunes apres leurs formations"},{"key":"2","label":"Creation des structures educatives repondant aux besoins et a la demande de la population"},{"key":"3","label":"Pour les personnes desoeuvrees et qui desirent poursuivre les etudes, faciliter leur inscription dans les ecoles appropries"},{"key":"4","label":"Ouverture d'un centre pour apprentissage en langue locale pour les jeunes"},{"key":"5","label":"Mettre en place une bibliotheque fonctionnelle pour les apprenants"},{"key":"6","label":"Autres"}],
+  "n3":[{"key":"1","label":"Agro-pastorale"},{"key":"2","label":"Enseignement"},{"key":"3","label":"Commerce"},{"key":"4","label":"Recyclage et gestion des ordures"},{"key":"5","label":"Administration"},{"key":"6","label":"Construction"},{"key":"7","label":"Action sociale"},{"key":"8","label":"Ingenieurie"},{"key":"9","label":"Communication"},{"key":"10","label":"Autres"}],
+  "n4":[{"key":"1","label":"Assurance d'une securite sociale"},{"key":"2","label":"Disposition pour payer les conges annuels"},{"key":"3","label":"Eviter les licenciements abusifs"},{"key":"4","label":"Organiser les concours du meilleur projet par secteur d'activite"},{"key":"5","label":"Mettre en place les meilleurs projets d'activite"},{"key":"6","label":"Autres"}],
+  "n5":[{"key":"1","label":"Creation d'une ecole d'agriculture"},{"key":"2","label":"Faciliter la procedure d'obtention du titre foncier pour les terres detenues"},{"key":"3","label":"Application directe et reconnaissance de la decision du tribunal coutumier en matiere de reglement de litige foncier"},{"key":"4","label":"Mettre les agriculteurs en cooperative"},{"key":"5","label":"Faciliter et promouvoir l'obtention des intrants naturels des produits agricoles"},{"key":"6","label":"Campagne de sensibilisation sur la meteriologie"},{"key":"7","label":"Amenager les routes pour les faciliter le deplacement dans les installations les plus proches"},{"key":"8","label":"Transformation des produits agricoles sur place"},{"key":"9","label":"Mettre sur pied un systeme de conservation des produits agricoles jusqu'a la prochaine recolte"},{"key":"10","label":"Autres"}],
+  "n6":[{"key":"1","label":"Construction des logements avec les materiaux locaux"},{"key":"2","label":"Construction des logements avec les materiaux contemporains"},{"key":"3","label":"Construction des logements ecologiques et durables"},{"key":"4","label":"Autres"}]
+
 }

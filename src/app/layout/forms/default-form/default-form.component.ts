@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer, Renderer2, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { MatSelectChange } from '@angular/material';
 import {DataSource} from '@angular/cdk/collections';
@@ -48,7 +48,9 @@ export class DefaultFormComponent implements OnInit {
   choices: any;
 
   constructor(
+    private el:ElementRef,
     private renderer: Renderer,
+    private renderer2: Renderer2,
     private formBuilder: FormBuilder,
     private dataService: DataService
   ) { }
@@ -56,7 +58,6 @@ export class DefaultFormComponent implements OnInit {
   ngOnInit() {
     this._initForm();
     this.choices = ChoicesSurvey.choices;
-    console.log(this.choices['mf'])
   }
 
   _initForm() {
@@ -145,22 +146,88 @@ export class DefaultFormComponent implements OnInit {
     )
   }
 
+  selectionChangeOnMuliple(oldEvent, event) {
+    console.log(oldEvent, ' --- ', event);
+    let ksplit = event.source.id.split("__");
+    if(typeof(oldEvent) === 'undefined') {
+      oldEvent = {value: []}
+    }
+
+    let value = undefined;
+    if (oldEvent.value.length < event.value.length) {
+      // if (Array.isArray(event.value)) {
+      //
+      // } else {
+      //   value = event.value;
+      // }
+      console.log("INSIDE ARRAY")
+      for(let i = 0; i < event.value.length; i++) {
+        console.log(oldEvent.value, " --- ", event.value[i]);
+        if (!oldEvent.value.includes(event.value[i])) {
+          value = event.value[i]
+
+          break;
+        }
+      }
+    } else {
+      console.log("INSIDE ARRAY BACK")
+      for(let i = 0; i < oldEvent.value.length; i++) {
+        if (!event.value.includes(oldEvent.value[i])) {
+          value = oldEvent.value[i]
+
+          break;
+        }
+      }
+    }
+
+    if ('post' in defaultSurvey[ksplit[0]][ksplit[1]]) {
+      var quest = defaultSurvey[ksplit[0]][ksplit[1]];
+      if (quest.post[value] != undefined) {
+        let elemId = `${ksplit[0]}__${quest.post[value]}__container`;
+        console.log(elemId)
+        console.log(document.getElementById(elemId).classList);
+        document.getElementById(elemId).classList.toggle('d-none');
+      }
+    }
+
+
+  }
+
   selectionChange(event:MatSelectChange) {
     console.log(event);
     let ksplit = event.source.id.split("__")
-    console.log(ksplit);
-    console.log(defaultSurvey[ksplit[0]][ksplit[1]])
+
+
+    // console.log(ksplit);
+    // console.log(defaultSurvey[ksplit[0]][ksplit[1]])
+
+    if ('post' in defaultSurvey[ksplit[0]][ksplit[1]]) {
+      console.log("POST....", ksplit);
+      var quest = defaultSurvey[ksplit[0]][ksplit[1]];
+      console.log(event.value, " --- ", typeof(event.value), " --- ", quest.post[event.value]);
+      // if (event.value.includes(quest.post.value)) {
+      if (quest.post[event.value] != undefined) {
+        // console.log(this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`));
+        // var elt = this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`);
+        let elemId = `${ksplit[0]}__${quest.post[event.value]}__container`
+        // let elt = document.getElementById(`#${ksplit[0]}__${quest.post.question}__container`)
+        console.log(elemId)
+        console.log(document.getElementById(elemId).classList);
+        document.getElementById(elemId).classList.toggle('d-none'); // add();
+        // console.log(elt);
+
+        // this.renderer2.removeClass(elt, 'd-none')
+      }
+    }
+    // JUMP TO
+
     if ('jumpTo' in defaultSurvey[ksplit[0]][ksplit[1]] &&
-        event.value in defaultSurvey[ksplit[0]][ksplit[1]].jumpTo) {
+            event.value in defaultSurvey[ksplit[0]][ksplit[1]].jumpTo) {
       console.log("We jump to ", defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value]);
 
       let jumpToId = defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value];
       // console.log(ksplit, ' --- ', jumpToId);
       this._disableElement(event.source.id, jumpToId);
-
-      // const element = this.renderer.selectRootElement(`#${ksplit[0]}__${jumpToId}`)
-      // element.focus();
-      // setTimeout(() => element.focus(), 0)
     }
   }
 

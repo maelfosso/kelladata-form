@@ -1163,7 +1163,8 @@
         <div>
           <mat-form-field>
             <span matPrefix>M1 &nbsp;</span>
-            <mat-select id="section_m__m1" placeholder="vez-vous dépensé de l’argent au cours des 30 derniers jours autre que l’alimentation ?" formControlName="m1">
+            <mat-select id="section_m__m1" placeholder="vez-vous dépensé de l’argent au cours des 30 derniers jours autre que l’alimentation ?" formControlName="m1"
+              (selectionChange)="selectionChangeOnSingle(oldValuem1, $event); oldValuem1 = $event;">
               <mat-option *ngFor="let c of choices['m1']" [value]="c.key">{{ c.label }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -1171,12 +1172,20 @@
         <div>
           <mat-form-field>
             <span matPrefix>M2 &nbsp;</span>
-            <mat-select id="section_m__m2" placeholder="Quelles sont les dépenses non alimentaires du ménage au cours des 30 derniers jours ?" multiple formControlName="m2">
+            <mat-select id="section_m__m2" placeholder="Quelles sont les dépenses non alimentaires du ménage au cours des 30 derniers jours ?" multiple formControlName="m2"
+              (selectionChange)="selectionChangeOnMuliple(oldValm2, $event); oldValm2 = $event;">
               <mat-option *ngFor="let c of choices['m2']" [value]="c.key">{{ c.label }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
+
+        <div class="d-none" id="section_m__m2_others__container">
+          <mat-form-field>
+            <span matPrefix>M2 &nbsp;</span>
+            <input matInput type="number" id="m2_others" placeholder="Autres" formControlName="m2_others"/>
+          </mat-form-field>
+        </div>
         <div class="d-none" id="section_m__m2_transport__container">
           <mat-form-field>
             <span matPrefix>M2 &nbsp;</span>
@@ -1219,17 +1228,17 @@
             <input matInput type="number" id="m2_sante" placeholder="Sante" formControlName="m2_sante"/>
           </mat-form-field>
         </div>
-        <div class="d-none" id="section_m__m2_others__container">
+        <div class="d-none" id="section_m__m2_others_value__container">
           <mat-form-field>
             <span matPrefix>M2 &nbsp;</span>
-            <input matInput type="number" id="m2_others" placeholder="Autres" formControlName="m2_others"/>
+            <input matInput type="number" id="m2_others_value" placeholder="Autres" formControlName="m2_others_value"/>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field>
             <span matPrefix>M3 &nbsp;</span>
-            <mat-select id="section_m__m3" placeholder="Est-ce que ces dépenses ont augmenté ?" multiple formControlName="m3">
+            <mat-select id="section_m__m3" placeholder="Est-ce que ces dépenses ont augmenté ?" formControlName="m3">
               <mat-option *ngFor="let c of choices['m3']" [value]="c.key">{{ c.label }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -1238,7 +1247,8 @@
         <div>
           <mat-form-field>
             <span matPrefix>M4 &nbsp;</span>
-            <mat-select id="section_m__m4" placeholder="Avez-vous utilisé les éléments ci-après au cours des 30 derniers jours (autoconsommation) ?" multiple formControlName="m4">
+            <mat-select id="section_m__m4" placeholder="Avez-vous utilisé les éléments ci-après au cours des 30 derniers jours (autoconsommation) ?" multiple formControlName="m4"
+              (selectionChange)="selectionChangeOnMuliple(oldValm4, $event); oldValm4 = $event;">
               <mat-option *ngFor="let c of choices['m4']" [value]="c.key">{{ c.label }}</mat-option>
             </mat-select>
           </mat-form-field>

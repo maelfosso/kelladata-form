@@ -162,7 +162,6 @@ export class DefaultFormComponent implements OnInit {
       // }
       console.log("INSIDE ARRAY")
       for(let i = 0; i < event.value.length; i++) {
-        console.log(oldEvent.value, " --- ", event.value[i]);
         if (!oldEvent.value.includes(event.value[i])) {
           value = event.value[i]
 
@@ -182,19 +181,35 @@ export class DefaultFormComponent implements OnInit {
 
     if ('post' in defaultSurvey[ksplit[0]][ksplit[1]]) {
       var quest = defaultSurvey[ksplit[0]][ksplit[1]];
+      console.log("INSIDE .... POST..... ", quest);
       if (quest.post[value] != undefined) {
-        let elemId = `${ksplit[0]}__${quest.post[value]}__container`;
-        console.log(elemId)
-        console.log(document.getElementById(elemId).classList);
-        document.getElementById(elemId).classList.toggle('d-none');
+        console.log("NOT UNDEFINED... QPV ... ");
+        if(Array.isArray(quest.post[value])) {
+          console.log("ARRAY ISARRAY");
+          for(let i=0; i < quest.post[value].length; i++) {
+            let v = quest.post[value][i];
+
+            let elemId = `${ksplit[0]}__${quest.post[value][i]}__container`;
+            console.log(elemId)
+            console.log(document.getElementById(elemId).classList);
+            document.getElementById(elemId).classList.toggle('d-none');
+          }
+        } else {
+          console.log("NOT NOT ARRAY....");
+          let elemId = `${ksplit[0]}__${quest.post[value]}__container`;
+          console.log(elemId)
+          console.log(document.getElementById(elemId).classList);
+          document.getElementById(elemId).classList.toggle('d-none');
+        }
+
       }
     }
 
-
   }
 
-  selectionChange(event:MatSelectChange) {
-    console.log(event);
+  // selectionChange(event:MatSelectChange) {
+  selectionChangeOnSingle(oldEvent, event:MatSelectChange) {
+    console.log(oldEvent, ' --- ', event);
     let ksplit = event.source.id.split("__")
 
 
@@ -220,6 +235,25 @@ export class DefaultFormComponent implements OnInit {
       }
     }
     // JUMP TO
+
+
+    if ('jumpTo' in defaultSurvey[ksplit[0]][ksplit[1]]) {
+      // OLD value
+      if (oldEvent && oldEvent.value in defaultSurvey[ksplit[0]][ksplit[1]].jumpTo) {
+        console.log("OLD VALUE ---- We jump to ", defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[oldEvent.value]);
+
+        let jumpToId = defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[oldEvent.value];
+        this._enableElement(event.source.id, jumpToId);
+      }
+
+      // Actual value
+      if (event.value in defaultSurvey[ksplit[0]][ksplit[1]].jumpTo) {
+        console.log("ACTUAL VALUE --- We jump to ", defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value]);
+
+        let jumpToId = defaultSurvey[ksplit[0]][ksplit[1]].jumpTo[event.value];
+        this._disableElement(event.source.id, jumpToId);
+      }
+    }
 
     if ('jumpTo' in defaultSurvey[ksplit[0]][ksplit[1]] &&
             event.value in defaultSurvey[ksplit[0]][ksplit[1]].jumpTo) {
@@ -263,8 +297,77 @@ export class DefaultFormComponent implements OnInit {
           // (<FormControl>(<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i])).setValue('')
           (<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i]).disable()
         } else if (this.surveyForm.get(section) instanceof FormGroup) {
-          this.surveyForm.get(section).get(keys[i]).setValue('')
-          this.surveyForm.get(section).get(keys[i]).disable()
+          this.surveyForm.get(section).get(keys[i]).reset(); // setValue('')
+          this.surveyForm.get(section).get(keys[i]).disable();
+        }
+      }
+
+      return;
+    }
+
+    console.log("STEP 1")
+    // STEP 1
+    let fKeys = Object.keys(defaultSurvey[tsection])
+    let fidx = fKeys.indexOf(felt);
+    for(let i = fidx + 1; i < fKeys.length; i++) {
+      this._sectionGroupForm(tsection).get(fKeys[i]).disable()
+    }
+
+    console.log("STEP 2")
+    // STEP 2
+    let sectionKeys = Object.keys(defaultSurvey);
+    let idxFrom = sectionKeys.indexOf(fsection)
+    let idxTo = sectionKeys.indexOf(tsection)
+
+    for(let i = idxFrom + 1; i < idxTo; i++) {
+      this.surveyForm.get(sectionKeys[i]).disable()
+    }
+
+    console.log("STEP 3")
+    // STEP 3
+    let tKeys = Object.keys(defaultSurvey[tsection]);
+    let endIdx = tKeys.indexOf(telt)
+    for (let i = 0; i < endIdx; i++) {
+      this.surveyForm.get(tsection).get(tKeys[i])
+    }
+
+  }
+
+
+  _enableElement(from, to) {
+    let fsplit = from.split('__');
+    let tsplit = to.split('__');
+
+    let fsection = fsplit[0], felt = fsplit[1];
+    let tsection, telt; // = tsplit[0], felt = tsplit[1];
+
+    if (tsplit.length == 1) {
+      tsection = fsection;
+      telt = tsplit[0] == 'end_subsection' ? 'end_subsection' : tsplit[0];
+    } else {
+      tsection = tsplit[0]
+      telt = tsplit[1]
+    }
+
+
+    if (fsection == tsection) {
+      let section = fsection;
+      console.log("STEP 0");
+      let keys = Object.keys(defaultSurvey[section])
+      let fidx = keys.indexOf(felt);
+      let tidx = keys.indexOf(telt) == -1 ? keys.length : keys.indexOf(telt);
+
+      console.log(this.surveyForm.get(section))
+      console.log(this.surveyForm.get(section) instanceof FormArray)
+      console.log(this.surveyForm.get(section) instanceof FormGroup)
+      for(let i = fidx + 1; i < tidx; i++) {
+        if (this.surveyForm.get(section) instanceof FormArray) {
+          var l = (<FormArray>this.surveyForm.get(section)).controls.length;
+          // (<FormControl>(<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i])).setValue('')
+          (<FormArray>this.surveyForm.get(section)).controls[l - 1].get(keys[i]).disable()
+        } else if (this.surveyForm.get(section) instanceof FormGroup) {
+          this.surveyForm.get(section).get(keys[i]).reset(); // setValue('')
+          this.surveyForm.get(section).get(keys[i]).enable();
         }
       }
 

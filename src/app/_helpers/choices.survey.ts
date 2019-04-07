@@ -103,6 +103,13 @@ export const choices: any = {
   'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
   'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
 
+  "k1":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "k2":[{"key":"1","label":"Elevage"},{"key":"2","label":"Chasse"},{"key":"3","label":"Peche"},{"key":"4","label":"Transport"},{"key":"5","label":"Commerce"},{"key":"6","label":"Enseignement"},{"key":"7","label":"Coiffure"},{"key":"8","label":"Transport"},{"key":"9","label":"Electricite"},{"key":"10","label":"Macon"},{"key":"11","label":"Domestique/Menager"},{"key":"12","label":"Force armee et securite"},{"key":"13","label":"Buvette/restauration"},{"key":"14","label":"Autres"}],
+  "k6":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "k12":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "k14":[{"key":"1","label":"Augmentation des capitaux"},{"key":"2","label":"Augmentation des partenaires"},{"key":"3","label":"Forte demande de la clientele"},{"key":"4","label":"Augmentation des produits de vente"},{"key":"5","label":"Autres"}],
+  "k15":[{"key":"1","label":"Jeux du hasard (Pari-foot et PMUC)"},{"key":"2","label":"Primes"},{"key":"3","label":"Cotisations/Tontine"},{"key":"4","label":"Heures supplémentaires"},{"key":"5","label":"Autres"}],
+
   "l1":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
   "l2":[{"key":"1","label":"Macabo"},{"key":"2","label":"Manioc"},{"key":"3","label":"Igname"},{"key":"4","label":"Patate"},{"key":"5","label":"Taro"},{"key":"6","label":"Plantains"},{"key":"7","label":"Poissons"},{"key":"8","label":"Viandes"},{"key":"9","label":"Gombo"},{"key":"10","label":"Arachides"},{"key":"11","label":"Mais"},{"key":"12","label":"Haricots"},{"key":"13","label":"Pistache"},{"key":"14","label":"Legumes"},{"key":"15","label":"Autres"},{"key":"99","label":"Ne sait pas"}],
   "l4":[{"key":"1","label":"Macabo"},{"key":"2","label":"Manioc"},{"key":"3","label":"Igname"},{"key":"4","label":"Patate"},{"key":"5","label":"Taro"},{"key":"6","label":"Plantains"},{"key":"7","label":"Poissons"},{"key":"8","label":"Viandes"},{"key":"9","label":"Gombo"},{"key":"10","label":"Arachides"},{"key":"11","label":"Mais"},{"key":"12","label":"Haricots"},{"key":"13","label":"Pistache"},{"key":"14","label":"Legumes"},{"key":"15","label":"Autres"},{"key":"99","label":"Ne sait pas"}],

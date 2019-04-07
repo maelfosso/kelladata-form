@@ -1156,6 +1156,143 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION K : ENTREPRISES ET ACTIVITES NON AGRICOLES </ng-template>
+
+    <fieldset [formGroup]="surveyForm.get('section_k')">
+      <div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K1 &nbsp;</span>
+            <mat-select id="section_k__k1" placeholder="Le ménage/membre possède-t-il les activités/entreprises non agricoles ?" formControlName="k1"
+              (selectionChange)="selectionChangeOnSingle(oldValuek1, $event); oldValuek1 = $event;">
+              <mat-option *ngFor="let c of choices['k1']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K2 &nbsp;</span>
+            <mat-select id="section_k__k2" placeholder="Quelles sont ces activités/ entreprises non agricoles que possède le ménage/membre ?" multiple formControlName="k2">
+              <mat-option *ngFor="let c of choices['k2']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_k__k2_others__container">
+          <mat-form-field>
+            <span matPrefix>K2 &nbsp;</span>
+            <input matInput type="number" id="k2_others" placeholder="Autres" formControlName="k2_others"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K3 &nbsp;</span>
+            <input matInput type="text" id="section_k__k3" placeholder="Quel est le membre du ménage responsable de l’entreprise ?" formControlName="k3"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K4 &nbsp;</span>
+            <input matInput type="number" id="section_k__k4" placeholder="L’entreprise fonctionne depuis combien d’années ?" formControlName="k4"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K5 &nbsp;</span>
+            <input matInput type="number" id="section_k__k5" placeholder="Quel est le nombre de mois durant lesquels l’entreprise a fonctionné ?" formControlName="k5"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K6 &nbsp;</span>
+            <mat-select id="section_k__k6" placeholder="Cette entreprise est-elle en activité actuellement ?" formControlName="k6"
+              (selectionChange)="selectionChangeOnSingle(oldValuek6, $event); oldValuek6 = $event;">
+              <mat-option *ngFor="let c of choices['k6']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K7 &nbsp;</span>
+            <input matInput type="number" id="section_k__k7" placeholder="Quel est l’effectif des personnes qui travaillent actuellement dans l’entreprise ?" formControlName="k7"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K8 &nbsp;</span>
+            <input matInput type="number" id="section_k__k8" placeholder="Quel était le nombre de personnes qui travaillaient régulièrement dans cette entreprise il y a 12 mois ?" formControlName="k8"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K9 &nbsp;</span>
+            <input matInput type="number" id="section_k__k9" placeholder="Quelle était la dépense totale de l’entreprise par mois ?" formControlName="k9"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K10 &nbsp;</span>
+            <input matInput type="number" id="section_k__k10" placeholder="Quel était le montant total des ventes effectuées par an ?" formControlName="k10"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K11 &nbsp;</span>
+            <input matInput type="number" id="section_k__k11" placeholder="Quelle était la dépense totale de l’entreprise par mois ?" formControlName="k11"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K12 &nbsp;</span>
+            <mat-select id="section_k__k12" placeholder="Le revenu de votre entreprise avait-t-il évolué au cours des 02 dernières années ?" formControlName="k12"
+              (selectionChange)="selectionChangeOnSingle(oldValuek12, $event); oldValuek12 = $event;">
+              <mat-option *ngFor="let c of choices['k12']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K13 &nbsp;</span>
+            <input matInput type="number" id="section_k__k13" placeholder="Si oui, de combien ?" formControlName="k13"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K14 &nbsp;</span>
+            <mat-select id="section_k__k14" placeholder="Quelle était la raison principale de cette évolution ?" formControlName="k14"
+              (selectionChange)="selectionChangeOnSingle(oldValuek14, $event); oldValuek14 = $event;">
+              <mat-option *ngFor="let c of choices['k14']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_k__k14_others__container">
+          <mat-form-field>
+            <span matPrefix>K14 &nbsp;</span>
+            <input matInput type="number" id="k14_others" placeholder="Autres" formControlName="k14_others"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>K15 &nbsp;</span>
+            <mat-select id="section_k__k15" placeholder="Quelles étaient les autres sources de revenus que vous disposiez ?" multiple formControlName="k15"
+              (selectionChange)="selectionChangeOnMuliple(oldValuek15, $event); oldValuek15 = $event;">
+              <mat-option *ngFor="let c of choices['k15']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_k__k15_others__container">
+          <mat-form-field>
+            <span matPrefix>K15 &nbsp;</span>
+            <input matInput type="number" id="k15_others" placeholder="Autres" formControlName="k15_others"/>
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>SECTION L : DEPENSES ALIMENTAIRES DU MENAGE</ng-template>
 
     <fieldset [formGroup]="surveyForm.get('section_l')">

@@ -1156,6 +1156,144 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION L : DEPENSES ALIMENTAIRES DU MENAGE</ng-template>
+
+    <fieldset [formGroup]="surveyForm.get('section_l')">
+      <div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>L1 &nbsp;</span>
+            <mat-select id="section_l__l1" placeholder="Avez-vous fait les dépenses alimentaires du ménage au cours des 15 derniers jours ?" formControlName="l1"
+              (selectionChange)="selectionChangeOnSingle(oldValuel1, $event); oldValuel1 = $event;">
+              <mat-option *ngFor="let c of choices['l1']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <mat-select id="section_l__l2" placeholder="Avez-vous dépensé sur les produits suivants au cours des 15 derniers jours ?" multiple formControlName="l2"
+              (selectionChange)="selectionChangeOnMuliple(oldVall2, $event); oldVall2 = $event;">
+              <mat-option *ngFor="let c of choices['l2']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div class="d-none" id="section_l__l2_others__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_others" placeholder="Autres" formControlName="l2_others"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_macabo__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_macabo" placeholder="Macabo" formControlName="l2_macabo"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_manioc__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_manioc" placeholder="Manioc" formControlName="l2_manioc"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_iganmes__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_iganmes" placeholder="Ignames" formControlName="l2_iganmes"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_patates__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_patates" placeholder="Patates" formControlName="l2_patates"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_taro__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_taro" placeholder="Taro" formControlName="l2_taro"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_plantains__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_plantains" placeholder="Plantains" formControlName="l2_plantains"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_poissons__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_poissons" placeholder="Poissons" formControlName="l2_poissons"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_viandes__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_viandes" placeholder="Viandes" formControlName="l2_viandes"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_gombo__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_gombo" placeholder="Gombo" formControlName="l2_gombo"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_arachides__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_arachides" placeholder="Arachides" formControlName="l2_arachides"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_mais__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_mais" placeholder="Mais" formControlName="l2_mais"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_haricots__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_haricots" placeholder="Haricots" formControlName="l2_haricots"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_pistaches__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_pistaches" placeholder="Pistaches" formControlName="l2_pistaches"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_legumesc__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_legumes" placeholder="Legumes" formControlName="l2_legumes"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_l__l2_others_value__container">
+          <mat-form-field>
+            <span matPrefix>L2 &nbsp;</span>
+            <input matInput type="number" id="l2_others_value" placeholder="Autres" formControlName="l2_others_value"/>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <span matPrefix>L4 &nbsp;</span>
+            <mat-select id="section_l__l4" placeholder="Au cours des 15 derniers jours, quels sont les cadeaux alimentaires que vous avez reçus et consommés?" multiple formControlName="l4">
+              <mat-option *ngFor="let c of choices['l4']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </fieldset>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>SECTION M : DEPENSES NON ALIMENTAIRES DU MENAGE DES 30 JOURS</ng-template>
 
     <fieldset [formGroup]="surveyForm.get('section_m')">

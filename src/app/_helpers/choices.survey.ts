@@ -103,6 +103,10 @@ export const choices: any = {
   'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
   'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
 
+  "l1":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "l2":[{"key":"1","label":"Macabo"},{"key":"2","label":"Manioc"},{"key":"3","label":"Igname"},{"key":"4","label":"Patate"},{"key":"5","label":"Taro"},{"key":"6","label":"Plantains"},{"key":"7","label":"Poissons"},{"key":"8","label":"Viandes"},{"key":"9","label":"Gombo"},{"key":"10","label":"Arachides"},{"key":"11","label":"Mais"},{"key":"12","label":"Haricots"},{"key":"13","label":"Pistache"},{"key":"14","label":"Legumes"},{"key":"15","label":"Autres"},{"key":"99","label":"Ne sait pas"}],
+  "l4":[{"key":"1","label":"Macabo"},{"key":"2","label":"Manioc"},{"key":"3","label":"Igname"},{"key":"4","label":"Patate"},{"key":"5","label":"Taro"},{"key":"6","label":"Plantains"},{"key":"7","label":"Poissons"},{"key":"8","label":"Viandes"},{"key":"9","label":"Gombo"},{"key":"10","label":"Arachides"},{"key":"11","label":"Mais"},{"key":"12","label":"Haricots"},{"key":"13","label":"Pistache"},{"key":"14","label":"Legumes"},{"key":"15","label":"Autres"},{"key":"99","label":"Ne sait pas"}],
+
   "m1":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
   "m2":[{"key":"1","label":"Transport"},{"key":"2","label":"Scolarisation"},{"key":"3","label":"Factures"},{"key":"4","label":"Factures(Eau, Electricite)"},{"key":"6","label":"Intrants/Materiels agricole"},{"key":"7","label":"Sante"},{"key":"8","label":"Autres"}],
   "m3":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],

@@ -1156,6 +1156,366 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION J : PRODUCTION AGRICOLE DE LA SAISON 2017/2018</ng-template>
+
+    <fieldset [formGroup]="surveyForm.get('section_j')">
+      <div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <mat-select id="section_j__j1_cultives" placeholder="Quelles ont ete les produits agricoles que vous avez cultives pour l'annee 2017/2018 ?" multiple formControlName="j1_cultives"
+              (selectionChange)="selectionChangeOnMuliple(oldValuej1cultives, $event); oldValuej1cultives = $event;">
+              <mat-option *ngFor="let c of choices['j1_cultives']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_others__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_others" placeholder="Autre" formControlName="j1_others"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <mat-select id="section_j__j1_vendus" placeholder="Quelles ont ete les produits agricoles que vous avez vendus pour l'annee 2017/2018 ?" multiple formControlName="j1_vendus"
+              (selectionChange)="selectionChangeOnMuliple(oldValuej1vendus, $event); oldValuej1vendus = $event;">
+              <mat-option *ngFor="let c of choices['j1_vendus']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_mais__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_mais" placeholder="Mais" formControlName="j1_mais"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_manioc__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_manioc" placeholder="Manioc" formControlName="j1_manioc"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_banane_plantain__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_banane_plantain" placeholder="Banane plantain" formControlName="j1_banane_plantain"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_macabo__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_macabo" placeholder="Macabo" formControlName="j1_macabo"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_taro__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_taro" placeholder="Taro" formControlName="j1_taro"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_iganmes__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_iganmes" placeholder="Ignames" formControlName="j1_iganmes"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_patates__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_patates" placeholder="Patates" formControlName="j1_patates"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_piments__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_piments" placeholder="Piments" formControlName="j1_piments"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_pistaches__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_pistaches" placeholder="Pistaches" formControlName="j1_pistaches"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_haricots__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_haricots" placeholder="Haricots" formControlName="j1_haricots"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_cacao__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_cacao" placeholder="Cacao" formControlName="j1_cacao"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_palmier_huile__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_palmier_huile" placeholder="Palmier a huile" formControlName="j1_palmier_huile"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_cafe__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_cafe" placeholder="Cafe" formControlName="j1_cafe"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_okok__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_okok" placeholder="Okok" formControlName="j1_okok"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_tomates__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_tomates" placeholder="Tomates" formControlName="j1_tomates"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_carottes__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_carottes" placeholder="Carottes" formControlName="j1_carottes"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j1_others_value__container">
+          <mat-form-field>
+            <span matPrefix>J1 &nbsp;</span>
+            <input matInput type="number" id="j1_others_value" placeholder="Autres" formControlName="j1_others_value"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_mais" placeholder="Quelles ont ete les facilitateurs du mais ?" multiple formControlName="j2_mais">
+              <mat-option *ngFor="let c of choices['j2_mais']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_manioc" placeholder="Quelles ont ete les facilitateurs du manioc ?" multiple formControlName="j2_manioc">
+              <mat-option *ngFor="let c of choices['j2_manioc']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_banane_plantain" placeholder="Quelles ont ete les facilitateurs de la banne plantain ?" multiple formControlName="j2_banane_plantain">
+              <mat-option *ngFor="let c of choices['j2_banane_plantain']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_macabo" placeholder="Quelles ont ete les facilitateurs du macabo ?" multiple formControlName="j2_macabo">
+              <mat-option *ngFor="let c of choices['j2_macabo']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_taro" placeholder="Quelles ont ete les facilitateurs du taro?" multiple formControlName="j2_taro">
+              <mat-option *ngFor="let c of choices['j2_taro']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_iganmes" placeholder="Quelles ont ete les facilitateurs des ignames ?" multiple formControlName="j2_iganmes">
+              <mat-option *ngFor="let c of choices['j2_iganmes']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_patates" placeholder="Quelles ont ete les facilitateurs des patates ?" multiple formControlName="j2_patates">
+              <mat-option *ngFor="let c of choices['j2_patates']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_piments" placeholder="Quelles ont ete les facilitateurs du piment ?" multiple formControlName="j2_piments">
+              <mat-option *ngFor="let c of choices['j2_piments']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_pistaches" placeholder="Quelles ont ete les facilitateurs du pistache ?" multiple formControlName="j2_pistaches">
+              <mat-option *ngFor="let c of choices['j2_pistaches']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_haricots" placeholder="Quelles ont ete les facilitateurs du haricot ?" multiple formControlName="j2_haricots">
+              <mat-option *ngFor="let c of choices['j2_haricots']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_cacao" placeholder="Quelles ont ete les facilitateurs du cacao ?" multiple formControlName="j2_cacao">
+              <mat-option *ngFor="let c of choices['j2_cacao']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_palmier_huile" placeholder="Quelles ont ete les facilitateurs du palmier a huile ?" multiple formControlName="j2_palmier_huile">
+              <mat-option *ngFor="let c of choices['j2_palmier_huile']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_cafe" placeholder="Quelles ont ete les facilitateurs du cafe ?" multiple formControlName="j2_cafe">
+              <mat-option *ngFor="let c of choices['j2_cafe']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_okok" placeholder="Quelles ont ete les facilitateurs du okok ?" multiple formControlName="j2_okok">
+              <mat-option *ngFor="let c of choices['j2_okok']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_tomates" placeholder="Quelles ont ete les facilitateurs des tomates ?" multiple formControlName="j2_tomates">
+              <mat-option *ngFor="let c of choices['j2_tomates']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J2 &nbsp;</span>
+            <mat-select id="section_j__j2_carottes" placeholder="Quelles ont ete les facilitateurs des carottes ?" multiple formControlName="j2_carottes">
+              <mat-option *ngFor="let c of choices['j2_carottes']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J3 &nbsp;</span>
+            <mat-select id="section_j__j3" placeholder="Avez-vous utilise les semences selectionnees/adequates" formControlName="j3">
+              <mat-option *ngFor="let c of choices['j3']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J4 &nbsp;</span>
+            <mat-select id="section_j__j4" placeholder="Avez-vous reçu les services d’encadrements pour vos produits agricoles 2017/2018 ?" formControlName="j4">
+              <mat-option *ngFor="let c of choices['j4']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J5 &nbsp;</span>
+            <mat-select id="section_j__j5" placeholder="Avez-vous utilisé les engrais pour vos produits agricoles ?" formControlName="j5">
+              <mat-option *ngFor="let c of choices['j5']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J6 &nbsp;</span>
+            <mat-select id="section_j__j6" placeholder="Pourquoi n’avez-vous pas utilisé de l’engrais pour vos produits agricoles ?" formControlName="j6"
+              (selectionChange)="selectionChangeOnSingle(oldValuej6, $event); oldValuej6 = $event;">
+              <mat-option *ngFor="let c of choices['j6']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j6_others__container">
+          <mat-form-field>
+            <span matPrefix>J6 &nbsp;</span>
+            <input matInput type="string" id="section_j__j6_others" placeholder="Autre" formControlName="j6_others"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J7 &nbsp;</span>
+            <mat-select id="section_j__j7" placeholder="Avez-vous sollicité un crédit agricole pour vos produits ?" formControlName="j7">
+              <mat-option *ngFor="let c of choices['j7']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J8 &nbsp;</span>
+            <mat-select id="section_j__j8" placeholder="Avez-vous obtenu ce crédit agricole ?" formControlName="j8">
+              <mat-option *ngFor="let c of choices['j8']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J9 &nbsp;</span>
+            <mat-select id="section_j__j9" placeholder="Pourquoi n’avez-vous pas sollicité de crédit agricole ?" formControlName="j9"
+              (selectionChange)="selectionChangeOnSingle(oldValuej9, $event); oldValuej9 = $event;">
+              <mat-option *ngFor="let c of choices['j9']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j9_others__container">
+          <mat-form-field>
+            <span matPrefix>J9 &nbsp;</span>
+            <input matInput type="string" id="j9_others" placeholder="Autre" formControlName="j6_others"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J10 &nbsp;</span>
+            <input matInput type="number" id="section_j__j10" placeholder="Quel est le nombre d’employés que vous avez utilisé pour le programme agricole 2017/2018 ?" formControlName="j10"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>J11 &nbsp;</span>
+            <mat-select id="section_j__j11" placeholder="Quels sont les matériels que vous avez utilisés pour la production agricole 2017/2018 ?" multiple formControlName="j11"
+              (selectionChange)="selectionChangeOnMuliple(oldValuej11, $event); oldValuej11 = $event;">
+              <mat-option *ngFor="let c of choices['j11']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_j__j11_others__container">
+          <mat-form-field>
+            <span matPrefix>J11 &nbsp;</span>
+            <input matInput type="string" id="j11_others" placeholder="Autre" formControlName="j11_others"/>
+          </mat-form-field>
+        </div>
+
+
+
+      </div>
+    </fieldset>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>SECTION K : ENTREPRISES ET ACTIVITES NON AGRICOLES </ng-template>
 
     <fieldset [formGroup]="surveyForm.get('section_k')">
@@ -1172,7 +1532,8 @@
         <div>
           <mat-form-field>
             <span matPrefix>K2 &nbsp;</span>
-            <mat-select id="section_k__k2" placeholder="Quelles sont ces activités/ entreprises non agricoles que possède le ménage/membre ?" multiple formControlName="k2">
+            <mat-select id="section_k__k2" placeholder="Quelles sont ces activités/ entreprises non agricoles que possède le ménage/membre ?" multiple formControlName="k2"
+              (selectionChange)="selectionChangeOnMuliple(oldValuek2, $event); oldValuek2 = $event;">
               <mat-option *ngFor="let c of choices['k2']" [value]="c.key">{{ c.label }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -1180,7 +1541,7 @@
         <div class="d-none" id="section_k__k2_others__container">
           <mat-form-field>
             <span matPrefix>K2 &nbsp;</span>
-            <input matInput type="number" id="k2_others" placeholder="Autres" formControlName="k2_others"/>
+            <input matInput type="number" id="section_k__k2_others" placeholder="Autres" formControlName="k2_others"/>
           </mat-form-field>
         </div>
         <div>
@@ -1267,7 +1628,7 @@
         <div class="d-none" id="section_k__k14_others__container">
           <mat-form-field>
             <span matPrefix>K14 &nbsp;</span>
-            <input matInput type="number" id="k14_others" placeholder="Autres" formControlName="k14_others"/>
+            <input matInput type="number" id="section_k__k14_others" placeholder="Autres" formControlName="k14_others"/>
           </mat-form-field>
         </div>
         <div>
@@ -1282,7 +1643,7 @@
         <div class="d-none" id="section_k__k15_others__container">
           <mat-form-field>
             <span matPrefix>K15 &nbsp;</span>
-            <input matInput type="number" id="k15_others" placeholder="Autres" formControlName="k15_others"/>
+            <input matInput type="number" id="section_k__k15_others" placeholder="Autres" formControlName="k15_others"/>
           </mat-form-field>
         </div>
       </div>

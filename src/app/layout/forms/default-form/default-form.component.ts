@@ -219,8 +219,21 @@ export class DefaultFormComponent implements OnInit {
     if ('post' in defaultSurvey[ksplit[0]][ksplit[1]]) {
       console.log("POST....", ksplit);
       var quest = defaultSurvey[ksplit[0]][ksplit[1]];
-      console.log(event.value, " --- ", typeof(event.value), " --- ", quest.post[event.value]);
+      // console.log(oldEvent.value, " --- ", typeof(oldEvent.value), " --- ", quest.post[oldEvent.value]);
       // if (event.value.includes(quest.post.value)) {
+      if (oldEvent && quest.post[oldEvent.value] != undefined) {
+        // console.log(this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`));
+        // var elt = this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`);
+        let elemId = `${ksplit[0]}__${quest.post[oldEvent.value]}__container`
+        // let elt = document.getElementById(`#${ksplit[0]}__${quest.post.question}__container`)
+        console.log(elemId)
+        console.log(document.getElementById(elemId).classList);
+        document.getElementById(elemId).classList.toggle('d-none'); // add();
+        // console.log(elt);
+
+        // this.renderer2.removeClass(elt, 'd-none')
+      }
+
       if (quest.post[event.value] != undefined) {
         // console.log(this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`));
         // var elt = this.renderer.selectRootElement(`#${ksplit[0]}__${quest.post.question}__container`);

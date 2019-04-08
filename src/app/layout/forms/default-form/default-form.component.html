@@ -1156,6 +1156,108 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION H: QUESTIONS SUR LES ENFANTS AGES ENTRE 0 ET 4 ANS</ng-template>
+
+    <div formArrayName="section_h">
+      <fieldset *ngFor="let _group of _sectionGroupForm('section_h').controls; let i=index" [formGroupName]="i">
+        <div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H1 &nbsp;</span>
+              <input matInput id="h1" [matDatepicker]="h1" placeholder="Date de naissance de l'enfant" formControlName="h1"/>
+              <mat-datepicker-toggle matSuffix [for]="h1"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #h1 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H2 &nbsp;</span>
+              <input matInput id="h2" placeholder="Lieu de naissance de l'enfant" formControlName="h2"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H3 &nbsp;</span>
+              <mat-select id="section_h__h3" placeholder="Avez-vous eu des soins prenataux avant l'accouchement ?" formControlName="h3">
+                <mat-option *ngFor="let c of choices['h3']" [value]="c.key">{{ c.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H4 &nbsp;</span>
+              <mat-select id="section_h__h4" placeholder="Handicap possede par l'enfant ?" multiple formControlName="h4"
+                (selectionChange)="selectionChangeOnSingle(oldValueh4, $event); oldValueh4 = $event;">
+                <mat-option *ngFor="let c of choices['h4']" [value]="c.key">{{ c.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="d-none" id="section_h__h4_others__container">
+            <mat-form-field>
+              <span matPrefix>H4 &nbsp;</span>
+              <input matInput type="number" id="h4_others" placeholder="Autres" formControlName="h4_others"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H5 Poids &nbsp;</span>
+              <input matInput id="h5_poids" placeholder="Poids de l'enfant" formControlName="h5_poids"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H5 Taille &nbsp;</span>
+              <<input matInput id="h5_taille" placeholder="Taille de l'enfant" formControlName="h5_taille"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H6 &nbsp;</span>
+              <mat-select id="section_h__h6" placeholder="Participation au programme de santé et de nutrition des enfants ?" formControlName="h6">
+                <mat-option *ngFor="let c of choices['h6']" [value]="c.key">{{ c.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <span matPrefix>H7 &nbsp;</span>
+              <mat-select id="section_h__h7" placeholder="Personne ayant assiste a l'accouchement de l'enfant" multiple formControlName="h7"
+                (selectionChange)="selectionChangeOnSingle(oldValueh7, $event); oldValueh7 = $event;">
+                <mat-option *ngFor="let c of choices['h7']" [value]="c.key">{{ c.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="d-none" id="section_h__h7_others__container">
+            <mat-form-field>
+              <span matPrefix>H4 &nbsp;</span>
+              <input matInput type="number" id="h7_others" placeholder="Autres" formControlName="h7_others"/>
+            </mat-form-field>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="mt-4 mb-4">
+      <button type="button" mat-raised-button color="accent"  (click)="_addGroup('section_h')">Ajouter</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource['section_h']" class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns['section_h']">
+        <th mat-header-cell *matHeaderCellDef> {{column | ucfirst }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+
+      <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns['section_h']"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns['section_h']"></tr>
+    </table>
+
+    <div>
+      <button type="button" mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
     <ng-template matStepLabel>SECTION I: DEPENSES RETROSPECTIVE DU MENAGE</ng-template>
 
     <fieldset [formGroup]="surveyForm.get('section_i')">

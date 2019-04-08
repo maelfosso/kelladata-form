@@ -33,7 +33,8 @@ export class DefaultFormComponent implements OnInit {
   displayedColumns: any = {
     'section_b': ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9'],
     'section_c': ['code', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9'],
-    'section_d': ['code','sexe','age', 'd1', 'd2', 'd3', 'd4', 'd5a', 'd5b', 'd6', 'd7']
+    'section_d': ['code','sexe','age', 'd1', 'd2', 'd3', 'd4', 'd5a', 'd5b', 'd6', 'd7'],
+    'section_h': ['h1','h2','h3', 'h4', 'h5_poids', 'h5_taille', 'h6', 'h7']
   }
   dataSource: any = {
     'section_b': new BehaviorSubject<any>(this.data['section_b']),

@@ -103,6 +103,11 @@ export const choices: any = {
   'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
   'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
 
+  "h3":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "h4":[{"key":"1","label":"Malformations"},{"key":"2","label":"Malnutritions"},{"key":"3","label":"Deficients visuels"},{"key":"4","label":"Deficients auditifs"},{"key":"5","label":"Deficients de langage"},{"key":"6","label":"Hernies"},{"key":"7","label":"Kystes"},{"key":"8","label":"Pas de handicap"},{"key":"9","label":"Autres"}],
+  "h6":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
+  "h7":[{"key":"1","label":"Membre menage"},{"key":"2","label":"Famille"},{"key":"3","label":"Proche"},{"key":"4","label":"Autres"}],
+
   "i1":[{"key":"1","label":"Frais de scolarite"},{"key":"2","label":"Livres et fournitures"},{"key":"3","label":"Uniformes scolaires"},{"key":"4","label":"Frais de transport scolaire"},{"key":"5","label":"Cotisation des parents d'eleves"},{"key":"6","label":"Autres cotisation scolaires"}],
   "i2":[{"key":"1","label":"Frais de scolarite"},{"key":"2","label":"Livres et fournitures"},{"key":"3","label":"Uniformes scolaires"},{"key":"4","label":"Frais de transport scolaire"},{"key":"5","label":"Cotisation des parents d'eleves"},{"key":"6","label":"Autres cotisation scolaires"}],
   "i3":[{"key":"1","label":"Frais d'analyse medicale"},{"key":"2","label":"Frais de consultation medicale"},{"key":"3","label":"Medicaments"},{"key":"4","label":"Frais d'hospitalisation"},{"key":"5","label":"Autres services medicaux"}],

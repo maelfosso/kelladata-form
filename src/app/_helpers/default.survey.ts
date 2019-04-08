@@ -168,6 +168,23 @@ export const defaultSurvey:any = {
     'g10': {type: 'single_choice', kv:{"1":"Poubelle","2":"Existence d’un service de ramassage/collecte","3":"Dans la rivière","4":"Autres"}},
 
   },
+  'section_h': {
+    _params: {
+      _type: 'array',
+      _max: 'section_b',
+      _id: 'b1'
+    },
+    'h1': {type:'data'},
+    'h2': {type:'string'},
+    'h3': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}},
+    'h4': {type: 'multiple_choice', kv: {'1':'Malformations','2':'Malnutritions','3':'Deficients visuels','4':'Deficients auditifs','5':'Deficients de langage','6':'Hernies','7':'Kystes','8':'Pas de handicap','9':'Autres'},post:{'9':'h4_others'}},
+    'h4_others':{type:'string', hidden: true},
+    'h5_poids':{type:'number'},
+    'h5_taille':{type:'number'},
+    'h6': {type: 'single_choice', kv: {'1':'Oui','2':'Non'}},
+    'h7': {type: 'single_choice', kv: {'1':'Membre menage','2':'Famille','3':'Proche','4':'Autres'},post:{'4':'h7_others'}},
+    'h7_others':{type:'string', hidden: true},
+  },
   'section_i': {
     'i1': {type:'multiple_choice', kv:{'1':'Frais de scolarite','2':'Livres et fournitures','3':'Uniformes scolaires','4':'Frais de transport scolaire','5':"Cotisation des parents d'eleves",'6':'Autres cotisation scolaires'},post:{'1':'i1_frais_scolarite','2':'i1_livre_fourniture_scolaire','3':'i1_uniforme_scolaires','4':'i1_frais_transport_scolaire','5':'i1_ape','6':'i1_others'}},
     'i1_frais_scolarite': {type:'number', hidden:true},

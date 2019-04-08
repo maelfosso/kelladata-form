@@ -1156,6 +1156,201 @@
     </div>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>SECTION I: DEPENSES RETROSPECTIVE DU MENAGE</ng-template>
+
+    <fieldset [formGroup]="surveyForm.get('section_i')">
+      <div>
+        <div>
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <mat-select id="section_i__i1" placeholder="Quelles ont ete les depenses scolaires du menage pour l'annee 2017/2018 ?" multiple formControlName="i1"
+              (selectionChange)="selectionChangeOnMuliple(oldValuei1, $event); oldValuei1 = $event;">
+              <mat-option *ngFor="let c of choices['i1']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_frais_scolarite__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_frais_scolarite" placeholder="Frais de scolarite" formControlName="i1_frais_scolarite"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_livre_fourniture_scolaire__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_livre_fourniture_scolaire" placeholder="Livre et fournitures scolaires" formControlName="i1_livre_fourniture_scolaire"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_uniforme_scolaires__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_uniforme_scolaires" placeholder="Uniforme scolaires" formControlName="i1_uniforme_scolaires"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_frais_transport_scolaire__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_frais_transport_scolaire" placeholder="Frais de transport scolaire" formControlName="i1_frais_transport_scolaire"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_ape__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_ape" placeholder="Cotisation des parents d'eleves" formControlName="i1_ape"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i1_others__container">
+          <mat-form-field>
+            <span matPrefix>I1 &nbsp;</span>
+            <input matInput type="number" id="i1_others" placeholder="Autres cotisation scolaires" formControlName="i1_others"/>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <mat-select id="section_i__i2" placeholder="Quelles sont les depenses scolaires du menage pour l'annee en cours ?" multiple formControlName="i2"
+              (selectionChange)="selectionChangeOnMuliple(oldValuei2, $event); oldValuei2 = $event;">
+              <mat-option *ngFor="let c of choices['i2']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_frais_scolarite__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_frais_scolarite" placeholder="Frais de scolarite" formControlName="i2_frais_scolarite"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_livre_fourniture_scolaire__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_livre_fourniture_scolaire" placeholder="Livre et fournitures scolaires" formControlName="i2_livre_fourniture_scolaire"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_uniforme_scolaires__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_uniforme_scolaires" placeholder="Uniforme scolaires" formControlName="i2_uniforme_scolaires"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_frais_transport_scolaire__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_frais_transport_scolaire" placeholder="Frais de transport scolaire" formControlName="i2_frais_transport_scolaire"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_ape__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_ape" placeholder="Cotisation des parents d'eleves" formControlName="i2_ape"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i2_others__container">
+          <mat-form-field>
+            <span matPrefix>I2 &nbsp;</span>
+            <input matInput type="number" id="i2_others" placeholder="Autres cotisation scolaires" formControlName="i2_others"/>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <mat-select id="section_i__i3" placeholder="Quelles ont ete les depenses de sante du menage au cours des 30 derniers jours" multiple formControlName="i3"
+              (selectionChange)="selectionChangeOnMuliple(oldValuei3, $event); oldValuei3 = $event;">
+              <mat-option *ngFor="let c of choices['i3']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i3_frais_analyse__container">
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <input matInput type="number" id="i3_frais_analyse" placeholder="Frais d'analyse medicale'" formControlName="i3_frais_analyse"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i3_frais_consultation_medicale__container">
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <input matInput type="number" id="i3_frais_consultation_medicale" placeholder="Frais de consultation medicale" formControlName="i3_frais_consultation_medicale"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i3_medicaments__container">
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <input matInput type="number" id="i3_medicaments" placeholder="Medicaments" formControlName="i3_medicaments"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i3_frais_hospitalisation__container">
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <input matInput type="number" id="i3_frais_hospitalisation" placeholder="Frais d'hospitalisation'" formControlName="i3_frais_hospitalisation"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i3_others__container">
+          <mat-form-field>
+            <span matPrefix>I3 &nbsp;</span>
+            <input matInput type="number" id="i3_others" placeholder="Autres services medicaux" formControlName="i3_others"/>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <mat-select id="section_i__i4" placeholder="Quelles sont les depenses d'intrants agricoles du menage pour l'annee 2017/2018 ?" multiple formControlName="i4"
+              (selectionChange)="selectionChangeOnMuliple(oldValuei4, $event); oldValuei4 = $event;">
+              <mat-option *ngFor="let c of choices['i4']" [value]="c.key">{{ c.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_semences__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_semences" placeholder="Semences" formControlName="i4_semences"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_engrais__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_engrais" placeholder="Engrais" formControlName="i4_engrais"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_produits_phytosanitaires__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_produits_phytosanitaires" placeholder="Produits phytosanitaires" formControlName="i4_produits_phytosanitaires"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_mains_oeuvres__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_mains_oeuvres" placeholder="Mains d'oeuvres" formControlName="i4_mains_oeuvres"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_reparation_materiels_agricole__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_reparation_materiels_agricole" placeholder="Reparation du materiel agricole" formControlName="i4_reparation_materiels_agricole"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_loc_achat_materiels_agricole__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_loc_achat_materiels_agricole" placeholder="Location/achat du materiel agricole" formControlName="i4_loc_achat_materiels_agricole"/>
+          </mat-form-field>
+        </div>
+        <div class="d-none" id="section_i__i4_others__container">
+          <mat-form-field>
+            <span matPrefix>I4 &nbsp;</span>
+            <input matInput type="number" id="i4_others" placeholder="Autres" formControlName="i4_others"/>
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="mt-4">
+      <button type="button" matStepperNext mat-raised-button color="primary" class="ml-auto">Suivant</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>SECTION J : PRODUCTION AGRICOLE DE LA SAISON 2017/2018</ng-template>
 
     <fieldset [formGroup]="surveyForm.get('section_j')">

@@ -46,7 +46,8 @@ export class DefaultFormComponent implements OnInit {
     private el:ElementRef,
     private renderer: Renderer,
     private renderer2: Renderer2,
-    private router: ActivatedRoute,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private dataService: DataService
   ) { }
@@ -54,7 +55,7 @@ export class DefaultFormComponent implements OnInit {
   ngOnInit() {
     this._initForm();
 
-    this.id = this.router.snapshot.params['id']
+    this.id = this.activatedRoute.snapshot.params['id']
     if (this.id) {
       this._loadData();
     }

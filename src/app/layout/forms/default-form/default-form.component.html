@@ -2363,8 +2363,22 @@
   <mat-step>
     <ng-template matStepLabel>Fin</ng-template>
 
+    <!-- <mat-progress-spinner *ngIf="saving"
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        value="50">
+    </mat-progress-spinner> -->
 
-    <div>
+    <mat-progress-bar *ngIf="saving"
+          class="example-margin"
+          color="primary"
+          mode="indeterminate"
+          value="50"
+          bufferValue="20">
+      </mat-progress-bar>
+
+    <div *ngIf="!saving">
       <button mat-raised-button color="primary" type="submit">Enregistrer</button>
     </div>
   </mat-step>

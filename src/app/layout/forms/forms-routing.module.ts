@@ -6,6 +6,7 @@ import { DefaultFormComponent } from './default-form/default-form.component';
 import { FillingFormComponent } from './filling-form/filling-form.component';
 import { ListFormsComponent } from './list-forms/list-forms.component';
 import { StatsComponent } from './stats/stats.component';
+import { DataComponent } from './data/data.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,9 @@ const routes: Routes = [
     component: FormsComponent,
     children: [
       { path: '', component: ListFormsComponent },
+      { path: 'default/:id', component: DefaultFormComponent },
       { path: 'default', component: DefaultFormComponent },
+      { path: 'data/default', component: DataComponent },
       { path: ':survey', component: FillingFormComponent },
       { path: ':survey/stats', component: StatsComponent },
     ]

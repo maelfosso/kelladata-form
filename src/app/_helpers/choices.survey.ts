@@ -99,9 +99,9 @@ export const choices: any = {
   'g8': [{key:"1", label:"Sable+ciment (non lissé)"},{key:"2", label:"Sable+ciment (lissé)"},{key:"3", label:"Carreaux"},{key:"4", label:"Terre nue"},{key:"5", label:"Autres"}],
   'g9': [{key:"1", label:"Immeuble à appartement"},{key:"2", label:"Villa"},{key:"3", label:"Maison individuel simple"},{key:"4", label:"Maison traditionnel ou case"},{key:"5", label:"Hutte"},{key:"6", label:"Autres"}],
   'g10': [{key:"1", label:"Poubelle"},{key:"2", label:"Existence d’un service de ramassage/collecte"},{key:"3", label:"Dans la rivière"},{key:"4", label:"Autres"}],
-  'h3': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
-  'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
-  'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+  // 'h3': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
+  // 'h4': [{key:'1', label:'Malformations'}, {key:'2', label:'Malnutritions'}, {key:'3', label:'Déficients visuels'}, {key:'4', label:'Déficients auditifs'}, {key:'5', label:'Déficients de langage'}, {key:'6', label:'Hernies'}, {key:'7', label:'Kystes'}, {key:'8', label:'Pas de handicap'}, {key:'9', label:'Autres'}],
+  // 'h7': [ {key: "1", label:"Oui"}, {key:"2", label:"Non"}],
 
   "h3":[{"key":"1","label":"Oui"},{"key":"2","label":"Non"}],
   "h4":[{"key":"1","label":"Malformations"},{"key":"2","label":"Malnutritions"},{"key":"3","label":"Deficients visuels"},{"key":"4","label":"Deficients auditifs"},{"key":"5","label":"Deficients de langage"},{"key":"6","label":"Hernies"},{"key":"7","label":"Kystes"},{"key":"8","label":"Pas de handicap"},{"key":"9","label":"Autres"}],

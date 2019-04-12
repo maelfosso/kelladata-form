@@ -14,6 +14,14 @@ export class DataService {
     return this.http.post(`${environment.apiUrl}/data`, data);
   }
 
+  fetchAll() {
+    return this.http.get(`${environment.apiUrl}/data`);
+  }
+
+  fetch(id:any) {
+    return this.http.get(`${environment.apiUrl}/data/${id}`);
+  }
+
   stats(survey:string = 'default') {
     return this.http.get(`${environment.apiUrl}/data/${survey}/stats`);
   }

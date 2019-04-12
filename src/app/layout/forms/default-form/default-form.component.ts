@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Renderer, Renderer2, ElementRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { MatSelectChange } from '@angular/material';
 import {DataSource} from '@angular/cdk/collections';
@@ -19,17 +20,6 @@ import * as ChoicesSurvey from '../../../_helpers/choices.survey';
 export class DefaultFormComponent implements OnInit {
 
   subject = new BehaviorSubject([])
-  data: any = {
-    'section_a': {},
-    'section_b_new': {
-      'to_save': false
-    },
-    'section_b': [],
-    'section_c_new': {
-      'to_save': false
-    },
-    'section_c': []
-  }
   displayedColumns: any = {
     'section_b': ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'b9'],
     'section_c': ['code', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9'],
@@ -37,8 +27,8 @@ export class DefaultFormComponent implements OnInit {
     'section_h': ['h1','h2','h3', 'h4', 'h5_poids', 'h5_taille', 'h6', 'h7']
   }
   dataSource: any = {
-    'section_b': new BehaviorSubject<any>(this.data['section_b']),
-    'section_c': new BehaviorSubject<any>(this.data['section_c']),
+    // 'section_b': new BehaviorSubject<any>(this.data['section_b']),
+    // 'section_c': new BehaviorSubject<any>(this.data['section_c']),
   }
 
   @ViewChild('stepper')
@@ -48,17 +38,42 @@ export class DefaultFormComponent implements OnInit {
   surveyForm:FormGroup;
   choices: any;
 
+  id: any = undefined;
+  data: any = {};
+  saving: any = false;
+
   constructor(
     private el:ElementRef,
     private renderer: Renderer,
     private renderer2: Renderer2,
+    private router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private dataService: DataService
   ) { }
 
   ngOnInit() {
     this._initForm();
+
+    this.id = this.router.snapshot.params['id']
+    if (this.id) {
+      this._loadData();
+    }
+    //  else {
+    //   this._initForm();
+    // }
+
     this.choices = ChoicesSurvey.choices;
+  }
+
+  _loadData() {
+    this.dataService.fetch(this.id).pipe(first()).subscribe(
+      (result:any) => {
+        this.data = result.data;
+
+        // this._initForm();
+        this.surveyForm.patchValue(this.data);
+      }
+    )
   }
 
   _initForm() {
@@ -87,6 +102,7 @@ export class DefaultFormComponent implements OnInit {
 
     });
     console.log(this.surveyForm);
+
   }
 
   _sectionGroupForm(section) {
@@ -138,11 +154,16 @@ export class DefaultFormComponent implements OnInit {
 
   onSave() {
     console.log(this.surveyForm.value);
-    this.dataService.save(this.surveyForm.value).pipe(first()).subscribe(
+    let values = this.surveyForm.value;
+    values['_id'] = this.id;
+
+    this.saving = true;
+    this.dataService.save(values).pipe(first()).subscribe(
       (result:any) => {
         console.log(result);
 
-        this._resetData();
+        this.saving = false;
+        this.router.navigate(['/forms/data/default']);
       }
     )
   }

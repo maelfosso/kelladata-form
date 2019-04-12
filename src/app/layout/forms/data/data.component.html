@@ -1,0 +1,62 @@
+<div>
+  <h2 class="mb-4">Liste des formulaires enregistres <a routerLink="/forms/default" class="float-right btn btn-primary btn-sm kella-btn-open">Ouvrir le formulaire</a></h2>
+  <div *ngFor="let datum of data">
+    <div  class="d-flex flex-wrap">
+      <div class="col-4">
+        <div class="font-weight-bold" mat-line>Date l'entretien</div>
+        <div mat-line>{{ datum.section_a.a1date }}</div>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Heure de l'entretien</span>
+        <span mat-line>{{ datum.section_a.a1time }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Region</span>
+        <span mat-line>{{ datum.section_a.a2 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Departement</span>
+        <span mat-line>{{ datum.section_a.a3 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Arrondissement</span>
+        <span mat-line>{{ datum.section_a.a4 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Village</span>
+        <span mat-line>{{ datum.section_a.a5 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Menage</span>
+        <span mat-line>{{ datum.section_a.a6 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Questionnaire</span>
+        <span mat-line>{{ datum.section_a.a7 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Chef du menage</span>
+        <span mat-line>{{ datum.a8 }}</span>
+      </div>
+
+      <div class="col-4">
+        <span class="d-block font-weight-bold" mat-line>Groupe d'enquete</span>
+        <span mat-line>{{ datum.a9 }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a routerLink="/forms/default/{{ datum._id }}" class="kella-btn-delete">Modify</a>
+    </div>
+
+    <hr class="mt-4 mb-4"/>
+  </div>
+</div>

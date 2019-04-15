@@ -13,7 +13,7 @@
           <mat-card-title>{{ variable.name }}</mat-card-title>
           <mat-card-subtitle>{{ variable.type }}</mat-card-subtitle>
         </mat-card-header>
-        
+
         <mat-card-content *ngSwitchCase="'text'">
           <mat-chip-list>
             <mat-chip *ngFor="let value of variable.stats">{{ value }}</mat-chip>
@@ -29,14 +29,6 @@
         </mat-card-content>
         <mat-card-content *ngSwitchCase="'single_choice'" id="{{ variable.name }}">
           <app-bar-chart [idx]="variable.name" [data]="variable.stats"></app-bar-chart>
-          <!-- <canvas baseChart
-              [data]="variable.stats | values"
-              [labels]="variable.question.kv | values"
-              chartType="pie"
-              [options]="pieChartOptions"
-              [plugins]="pieChartPlugins"
-              [legend]="barChartPlugins">
-              </canvas> -->
         </mat-card-content>
       </mat-card>
     </div>

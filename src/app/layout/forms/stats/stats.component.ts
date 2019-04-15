@@ -57,7 +57,7 @@ export class StatsComponent implements OnInit {
   }
 
   _loadStats() {
-    this.dataService.stats(this.survey).pipe(first()).subscribe(
+    this.dataService.stats("5cb0bc04c158f027ecf20938").pipe(first()).subscribe(
       (result:any) => {
         console.log(result);
 

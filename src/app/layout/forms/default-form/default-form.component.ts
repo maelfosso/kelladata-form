@@ -156,17 +156,29 @@ export class DefaultFormComponent implements OnInit {
   onSave() {
     console.log(this.surveyForm.value);
     let values = this.surveyForm.value;
-    values['_id'] = this.id;
 
     this.saving = true;
-    this.dataService.save(values).pipe(first()).subscribe(
-      (result:any) => {
-        console.log(result);
+    if (this.id) {
+      values['_id'] = this.id;
 
-        this.saving = false;
-        this.router.navigate(['/forms/data/default']);
-      }
-    )
+      this.dataService.update(values).pipe(first()).subscribe(
+        (result:any) => {
+          console.log(result);
+
+          this.saving = false;
+          this.router.navigate(['/forms/data/default']);
+        }
+      )
+    } else {
+      this.dataService.save(values).pipe(first()).subscribe(
+        (result:any) => {
+          console.log(result);
+
+          this.saving = false;
+          this.router.navigate(['/forms/data/default']);
+        }
+      )
+    }
   }
 
   selectionChangeOnMuliple(oldEvent, event) {
@@ -368,7 +380,6 @@ export class DefaultFormComponent implements OnInit {
     }
 
   }
-
 
   _enableElement(from, to) {
     let fsplit = from.split('__');

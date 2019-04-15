@@ -14,6 +14,10 @@ export class DataService {
     return this.http.post(`${environment.apiUrl}/data`, data);
   }
 
+  update(data:any) {
+    return this.http.put(`${environment.apiUrl}/data`, data);
+  }
+
   fetchAll() {
     return this.http.get(`${environment.apiUrl}/data`);
   }
